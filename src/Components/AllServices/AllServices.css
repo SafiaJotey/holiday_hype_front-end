@@ -1,0 +1,33 @@
+.service-card{
+    background-color: #D8DFE9 ;
+    border-radius: 20px;
+    min-height: 700px;
+}
+.country h2{
+    color:#04566E ;
+    font-weight: 700;
+}
+
+.service-card h6{
+    color:#04566E ;
+    font-weight: 700;
+    font-size: 28px;
+    margin: 10px 0;
+}
+
+.service-card p{
+   
+    font-size: 18px;
+}
+
+.service-card .btn{
+    background-color:  #04566E;
+    color: white;
+    outline: none;
+    border: none;
+    padding: 10px 34px;
+    border-radius: 40px;
+
+}
+
+

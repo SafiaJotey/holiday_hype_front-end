@@ -1,0 +1,27 @@
+.icon img{
+    width: 40%;
+  }
+    .footer-menu {
+      list-style: none;
+      margin-top: 30px;
+      font-size: 16px;
+      font-weight: 700;
+    }
+    .footer-menu:hover {
+      color: #D8DFE9;
+    }
+    .footer-input {
+      padding: 8px;
+      color:white;
+      border: none;
+      
+      background-color:#D8DFE9;
+    }
+    .footer-container {
+      margin-top: 100px;
+      background-color: #04566E;
+      padding: 50px;
+      color: rgb(248, 244, 244);
+      text-align: center;
+    }
+    

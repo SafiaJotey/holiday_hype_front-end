@@ -1,0 +1,30 @@
+.banner-container{
+    display: flex;
+    justify-content: center;
+    background-color: #D8DFE9;
+    padding: 50px 0;
+}
+.banner {
+  
+    text-align: center;
+    width: 90%;
+    color: black;
+}
+.logo-img img{
+      width: 70%;
+      margin: 40px 0;
+  }
+  .title {
+    color: #04566E;
+    font-weight: bold;
+    font-size: 45px;
+  }
+  .about-btn {
+    background-color:  #04566E;
+    color: white;
+    outline: none;
+    border: none;
+    padding: 10px 34px;
+    border-radius: 40px;
+    
+  }

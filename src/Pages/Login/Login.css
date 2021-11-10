@@ -1,0 +1,33 @@
+
+.login{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+  
+}
+.cart{
+    background-color: #D8DFE9;
+    width: 50%;
+    text-align: center;
+    border-radius: 10%;
+    padding: 2%;
+}
+.login h3{
+        font-size: 30px;
+        color: #04566E ;
+        font-weight: 700;
+        margin: 15px 0;
+        
+   
+}
+.login img{
+    width: 100%;
+}
+.login a{
+   text-decoration: underline;
+   font-size: 10px;
+
+}
+button{
+    margin:10px;
+}
