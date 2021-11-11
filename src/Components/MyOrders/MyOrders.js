@@ -11,22 +11,26 @@ const MyOrders = () => {
   const [control, setControl] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/myOrder/${user.email}`)
+    fetch(`https://limitless-oasis-74220.herokuapp.com/myOrder/${user.email}`)
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, [control]);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/delteOrder/${id}`, {
-      method: "DELETE",
+    const proceed=window.confirm("Are you Sure,you wan to delete?");
+    if(proceed){
+      fetch(`https://limitless-oasis-74220.herokuapp.com/deleteOrder/${id}`, {
+      method: "DELETE"
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount) {
           setControl(!control);
+          alert("deleted Successfully");
         }
       });
     console.log(id);
+    }
   };
 
   return (

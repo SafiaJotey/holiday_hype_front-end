@@ -1,25 +1,28 @@
+import userEvent from "@testing-library/user-event";
 import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import "./ManageOrder.css"
+import useAuth from './../Hooks/useAuth';
 
 const ManageOrder = () => {
   const [orders, setOrders] = useState([]);
   const [control, setControl] = useState(false);
   const [status, setStatus] = useState("");
+  const {user}=useAuth();
 
   const handleStatus = (e) => {
     setStatus(e.target.value);
   };
   console.log(status);
   useEffect(() => {
-    fetch("http://localhost:5000/allOrders")
+    fetch("https://limitless-oasis-74220.herokuapp.com/allOrders")
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [control]);
 
     // const status = "apporved";
   const handleUpdate = (id) => {
-    fetch(`http://localhost:5000/updateStatus/${id}`, {
+    fetch(`https://limitless-oasis-74220.herokuapp.com/updateStatus/${id}`, {
       method: "PUT",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ status }),
@@ -30,8 +33,8 @@ const ManageOrder = () => {
 
   //delete
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/delteOrder/${id}`, {
-      method: "DELETE",
+    fetch(`https://limitless-oasis-74220.herokuapp.com/deleteOrder/${id}`, {
+      method: "DELETE"
     })
       .then((res) => res.json())
       .then((data) => {
@@ -51,8 +54,9 @@ const ManageOrder = () => {
         <thead>
           <tr>
             <th>#</th>
-            <th>Service Title</th>
-          
+            <th>Place</th>
+            <th>By</th>
+            <th>Price</th>
             <th>Status</th>
             <th>Action</th>
           </tr>
@@ -62,7 +66,8 @@ const ManageOrder = () => {
             <tr>
               <td>{index}</td>
               <td>{order.name}</td>
-              
+              <td>$ {order.price}</td>
+              <td>{user.email}</td>
               <td>
                 <input
                   onChange={handleStatus}
@@ -70,10 +75,10 @@ const ManageOrder = () => {
                   defaultValue={order.status}
                 />
               </td>
-              <button onClick={() => handleDelete(order?._id)} className="btn bg-danger p-2">Delete</button>
+              <button onClick={() => handleDelete(order?._id)} className="btn bg-danger text-white p-2">Delete</button>
               <button
                 onClick={() => handleUpdate(order._id)}
-                className="btn bg-success p-2"
+                className="btn bg-success text-white p-2"
               >
                 Update
               </button>

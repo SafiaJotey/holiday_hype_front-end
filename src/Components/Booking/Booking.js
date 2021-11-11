@@ -12,7 +12,7 @@ const Booking = () => {
  
   
   useEffect(() => {
-    fetch(`http://localhost:5000/singleProduct/${serviceId}`)
+    fetch(`https://limitless-oasis-74220.herokuapp.com/singleProduct/${serviceId}`)
       .then((res) => res.json())
       .then((data) => setService(data));
   }, []);
@@ -31,7 +31,7 @@ const Booking = () => {
     
     data.status = "pending";
 
-    fetch("http://localhost:5000/confirmOrder", {
+    fetch("https://limitless-oasis-74220.herokuapp.com/confirmOrder", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(data),
