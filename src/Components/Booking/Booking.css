@@ -1,25 +1,23 @@
-.booking img{
-    width:80%;
-    height: 300px;
+.booking img {
+  width: 80%;
+  height: 300px;
 }
-.booking h1{
-    color:#04566E;
-    font-size: 40px;
-    font-weight: 700;
-    margin: 50px;
+.booking h1 {
+  color: #1a2238;
+  font-size: 40px;
+  font-weight: 700;
+  margin: 50px;
 }
-.booking p{
-    color:#38393a ;
-    font-size: 20px;
-    
-  
+.booking p {
+  color: #38393a;
+  font-size: 20px;
 }
 
-.booking .btn{
-    background-color: #04566E;
-    color: white;
-    outline: none;
-    border: none;
-    padding: 2% 20%;
-    border-radius: 40px;
+.booking .btn {
+  background-color: #1a2238;
+  color: white;
+  outline: none;
+  border: none;
+  padding: 2% 20%;
+  border-radius: 40px;
 }
