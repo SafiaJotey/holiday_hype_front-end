@@ -24,7 +24,7 @@ const Header = () => {
 
               {user?.email ? (
                 <div className="d-md-flex  align-items-center">
-                  {/* <Nav.Link as={Link} to="/myOrder">
+                  <Nav.Link as={Link} to="/myOrder">
                     MyOrders
                   </Nav.Link>
                   <Nav.Link as={Link} to="/manageOrder">
@@ -33,7 +33,7 @@ const Header = () => {
                   <Nav.Link as={Link} to="/addServices">
                     {' '}
                     AddService
-                  </Nav.Link> */}
+                  </Nav.Link>
 
                   <Navbar.Text>
                     Signed in as:{' '}

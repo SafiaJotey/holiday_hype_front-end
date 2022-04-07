@@ -1,13 +1,15 @@
 .service-card {
   background-color: #d8dfe9;
   border-radius: 20px;
-  min-height: 700px;
+  min-height: 300px;
 }
 .country h2 {
   color: #1a2238;
   font-weight: 700;
 }
-
+.package {
+  padding: 5px 30px;
+}
 .service-card h6 {
   color: #1a2238;
   font-weight: 700;

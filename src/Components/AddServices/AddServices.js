@@ -13,14 +13,14 @@ const AddServices = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    // fetch('http://localhost:5000/addServices', {
-    //   method: 'POST',
-    //   headers: { 'content-type': 'application/json' },
-    //   body: JSON.stringify(data),
-    // })
-    //   .then((res) => res.json())
-    //   .then((result) => console.log(result));
-    // console.log(data);
+    fetch('http://localhost:5000/addServices', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((result) => console.log(result));
+    console.log(data);
   };
   return (
     <div>
@@ -31,18 +31,24 @@ const AddServices = () => {
             <div className="login-form">
               <form onSubmit={handleSubmit(onSubmit)}>
                 <input
-                  {...register('name')}
-                  placeholder="Name"
+                  {...register('title')}
+                  placeholder="Title"
                   className="p-2 m-2 w-100"
                 />
                 <br />
-                {/* <input
-                  {...register("date")}
-                  // placeholder="Name"
-                  type="date"
+                <input
+                  {...register('subTitle')}
+                  placeholder="subTitle"
                   className="p-2 m-2 w-100"
                 />
-                <br /> */}
+                <br />
+                <input
+                  {...register('location')}
+                  placeholder="Location"
+                  className="p-2 m-2"
+                />
+                <br />
+
                 <input
                   {...register('description')}
                   placeholder="Description"
@@ -58,7 +64,7 @@ const AddServices = () => {
                 <br />
                 <input
                   {...register('price', { required: true })}
-                  placeholder="Price"
+                  placeholder="Total cost"
                   type="number"
                   className="p-2 m-2"
                 />
