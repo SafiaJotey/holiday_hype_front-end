@@ -10,7 +10,9 @@ const Booking = () => {
   const { user } = useAuth();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/singleProduct/${serviceId}`)
+    fetch(
+      `https://guarded-scrubland-87252.herokuapp.com/singleProduct/${serviceId}`
+    )
       .then((res) => res.json())
       .then((data) => setService(data));
   }, []);
@@ -26,7 +28,7 @@ const Booking = () => {
   const onSubmit = (data) => {
     data.status = 'pending';
 
-    fetch('http://localhost:5000/confirmOrder', {
+    fetch('https://guarded-scrubland-87252.herokuapp.com/confirmOrder', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(data),

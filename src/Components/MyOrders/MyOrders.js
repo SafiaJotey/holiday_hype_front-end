@@ -10,7 +10,7 @@ const MyOrders = () => {
   const [control, setControl] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/myOrder/${user.email}`)
+    fetch(`https://guarded-scrubland-87252.herokuapp.com/myOrder/${user.email}`)
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, [control]);
@@ -18,7 +18,7 @@ const MyOrders = () => {
   const handleDelete = (id) => {
     const proceed = window.confirm('Are you Sure,you wan to delete?');
     if (proceed) {
-      fetch(`http://localhost:5000/deleteOrder/${id}`, {
+      fetch(`https://guarded-scrubland-87252.herokuapp.com/deleteOrder/${id}`, {
         method: 'DELETE',
       })
         .then((res) => res.json())

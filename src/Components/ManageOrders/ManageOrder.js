@@ -14,14 +14,14 @@ const ManageOrder = () => {
   };
   console.log(status);
   useEffect(() => {
-    fetch('http://localhost:5000/allOrders')
+    fetch('https://guarded-scrubland-87252.herokuapp.com/allOrders')
       .then((res) => res.json())
       .then((data) => setOrders(data));
   }, [control]);
 
   // const status = "apporved";
   const handleUpdate = (id) => {
-    fetch(`http://localhost:5000/updateStatus/${id}`, {
+    fetch(`https://guarded-scrubland-87252.herokuapp.com/updateStatus/${id}`, {
       method: 'PUT',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify({ status }),
@@ -32,7 +32,7 @@ const ManageOrder = () => {
 
   //delete
   const handleDelete = (id) => {
-    fetch(`http://localhost:5000/deleteOrder/${id}`, {
+    fetch(`https://guarded-scrubland-87252.herokuapp.com/deleteOrder/${id}`, {
       method: 'DELETE',
     })
       .then((res) => res.json())
