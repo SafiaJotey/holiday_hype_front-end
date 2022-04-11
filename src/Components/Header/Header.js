@@ -21,18 +21,18 @@ const Header = () => {
               <Nav.Link as={Link} to="/home">
                 Home
               </Nav.Link>
+              <Nav.Link as={Link} to="/addBlog">
+                {' '}
+                Blogs
+              </Nav.Link>
 
               {user?.email ? (
                 <div className="d-md-flex  align-items-center">
                   <Nav.Link as={Link} to="/myOrder">
                     MyOrders
                   </Nav.Link>
-                  <Nav.Link as={Link} to="/manageOrder">
-                    ManageOrders
-                  </Nav.Link>
-                  <Nav.Link as={Link} to="/addServices">
-                    {' '}
-                    AddService
+                  <Nav.Link as={Link} to="/myBlog/:email">
+                    MyBlogs
                   </Nav.Link>
 
                   <Navbar.Text>

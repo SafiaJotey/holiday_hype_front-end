@@ -13,7 +13,7 @@ const AddServices = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    fetch('https://guarded-scrubland-87252.herokuapp.com/addServices', {
+    fetch('http://localhost:5000/addServices', {
       method: 'POST',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(data),
@@ -26,7 +26,7 @@ const AddServices = () => {
     <div>
       <div className="addservices">
         <h1 className="mt-5 text-center "> Add New Services Here</h1>
-        <div className="login-box w-25 m-auto mt-5">
+        <div className="login-box w-md-25 m-auto mt-5">
           <div className="event-box  d-flex justify-content-center align-items-center">
             <div className="login-form">
               <form onSubmit={handleSubmit(onSubmit)}>

@@ -8,9 +8,11 @@ import {
   Typography,
 } from '@mui/material';
 import React, { useState } from 'react';
+import Lottie from 'react-lottie';
 import { NavLink, useHistory, useLocation } from 'react-router-dom';
 import useAuth from '../../Components/Hooks/useAuth';
-import login from '../../Images/login.png';
+import useMediaQuery from '../../Components/Hooks/useMediaQuery';
+import animationData from '../../lotties/login.json';
 
 const Login = () => {
   const [loginData, setLoginData] = useState({});
@@ -18,6 +20,16 @@ const Login = () => {
 
   const location = useLocation();
   const history = useHistory();
+  const isTablet = useMediaQuery('(min-width: 656px)');
+  const isDesktop = useMediaQuery('(min-width: 900px)');
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice',
+    },
+  };
 
   const handleOnChange = (e) => {
     const field = e.target.name;
@@ -95,7 +107,11 @@ const Login = () => {
           </Button>
         </Grid>
         <Grid item xs={12} md={6}>
-          <img style={{ width: '100%' }} src={login} alt="" />
+          <Lottie
+            options={defaultOptions}
+            isClickToPauseDisabled={true}
+            width={isDesktop ? 450 : isTablet ? 400 : 300}
+          />
         </Grid>
       </Grid>
     </Container>

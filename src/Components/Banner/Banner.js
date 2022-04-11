@@ -1,6 +1,6 @@
 import React from 'react';
 import Lottie from 'react-lottie';
-import animationData from '../../lotties/lf30_editor_xokdt4tw.json';
+import animationData from '../../lotties/banner.json';
 import useMediaQuery from '../Hooks/useMediaQuery';
 import './Banner.css';
 

@@ -1,4 +1,6 @@
 import React from 'react';
+import { Nav } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import logo from '../../Images/logo.png';
 import './Footer.css';
 
@@ -34,10 +36,27 @@ const Footer = () => {
             <div className="col-md-2">
               <div className="footer-menu-container">
                 <ul className="my-5">
-                  <li className="footer-menu">Home</li>
-                  <li className="footer-menu">About</li>
-                  <li className="footer-menu">Contact </li>
-                  <li className="footer-menu">Blogs </li>
+                  <li className="footer-menu">
+                    <Nav.Link as={Link} to="/home" className="menuColor">
+                      {' '}
+                      Home
+                    </Nav.Link>
+                  </li>
+
+                  <li className="footer-menu">
+                    {' '}
+                    <Nav.Link as={Link} to="/addBlog" className="menuColor">
+                      {' '}
+                      Blogs
+                    </Nav.Link>
+                  </li>
+                  <li className="footer-menu">
+                    {' '}
+                    <Nav.Link as={Link} to="/login " className="menuColor">
+                      {' '}
+                      Login
+                    </Nav.Link>
+                  </li>
                 </ul>
               </div>
             </div>

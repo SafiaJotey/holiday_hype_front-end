@@ -11,14 +11,13 @@ import Typography from '@mui/material/Typography';
 import PropTypes from 'prop-types';
 import * as React from 'react';
 import { Link, Route, Switch, useRouteMatch } from 'react-router-dom';
-import AddProducts from './../../../Components/AddProducts/AddProducts';
-import AddReviews from './../../../Components/AddReviews/AddReviews';
-import Makeadmin from './../../../Components/Admin/MakeAdmin/Makeadmin';
+// import AddProducts from './../../../Components/AddProducts/AddProducts';
+// import Makeadmin from './../../../Components/Admin/MakeAdmin/Makeadmin';
 import useAuth from './../../../Components/Hooks/useAuth';
-import ManageOrder from './../../../Components/ManageOrders/ManageOrder';
-import ManageProducts from './../../../Components/ManageProducts/ManageProducts';
-import MyOrders from './../../../Components/MyOrders/MyOrders';
-import Payment from './../../../Components/Payment/Payment';
+// import ManageOrder from './../../../Components/ManageOrders/ManageOrder';
+// import ManageProducts from './../../../Components/ManageProducts/ManageProducts';
+// import MyOrders from './../../../Components/MyOrders/MyOrders';
+// import Payment from './../../../Components/Payment/Payment';
 import DashboardHome from './../DashboardHome/DashboardHome';
 
 const drawerWidth = 240;
@@ -122,7 +121,7 @@ function Dashboard(props) {
       >
         <Toolbar
           style={{
-            backgroundImage: 'linear-gradient(45deg,#b000b2,#000b19,#b000b2)',
+            backgroundColor: '#1a2238',
           }}
         >
           <IconButton
@@ -190,7 +189,7 @@ function Dashboard(props) {
           <Route exact path={path}>
             <DashboardHome></DashboardHome>
           </Route>
-          <Route path={`${path}/myOrder`}>
+          {/* <Route path={`${path}/myOrder`}>
             <MyOrders></MyOrders>
           </Route>
           <Route path={`${path}/review`}>
@@ -205,9 +204,9 @@ function Dashboard(props) {
 
           <Route path={`${path}/manageOrder`}>
             <ManageOrder></ManageOrder>
-          </Route>
+          </Route> */}
 
-          <Route path={`${path}/manageProduct`}>
+          {/* <Route path={`${path}/manageProduct`}>
             <ManageProducts></ManageProducts>
           </Route>
 
@@ -216,7 +215,7 @@ function Dashboard(props) {
           </Route>
           <Route path={`${path}/addService`}>
             <AddProducts></AddProducts>
-          </Route>
+          </Route> */}
         </Switch>
       </Box>
     </Box>

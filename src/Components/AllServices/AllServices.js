@@ -5,7 +5,7 @@ import './AllServices.css';
 const AllServices = () => {
   const [services, setServices] = useState([]);
   useEffect(() => {
-    fetch('https://guarded-scrubland-87252.herokuapp.com/allServices')
+    fetch('http://localhost:5000/allServices')
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, []);
@@ -37,7 +37,7 @@ const AllServices = () => {
                 <p>{service?.subTitle}</p>
                 <h3 className="text-danger"> Cost : $ {service?.price}</h3>
                 <Link to={`/booking/${service._id}`}>
-                  <button className="btn ">Book Now</button>
+                  <button className="btn ">Details</button>
                 </Link>
               </div>
             </div>

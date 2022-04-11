@@ -1,0 +1,30 @@
+.form .btn {
+  padding: 3px 5px;
+  background-color: #1a2238;
+  color: white;
+  font-size: 16px;
+}
+.blog-container {
+  display: flex;
+  justify-content: center;
+  background-color: #f8f8f6;
+}
+.blog .blogBtn {
+  padding: 6px 20px;
+  background-color: #1a2238;
+  color: white;
+  font-size: 20px;
+  border-radius: 5px;
+}
+
+.blogText .smallText {
+  font-size: 12px;
+  margin: 0 2px;
+}
+.blogLink {
+  background-color: transparent !important;
+  border: none !important;
+  padding: 0px 0px !important;
+  color: #1a2238 !important;
+  font-size: 12px !important;
+}

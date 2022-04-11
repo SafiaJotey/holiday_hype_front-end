@@ -10,6 +10,9 @@
 .footer-menu:hover {
   color: #d8dfe9;
 }
+.footer-menu .menuColor {
+  color: white;
+}
 .footer-input {
   padding: 8px;
   color: white;

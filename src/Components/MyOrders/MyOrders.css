@@ -1,6 +1,9 @@
-.order {
+.services {
   color: #1a2238;
   margin: 50px 0;
+}
+.services p {
+  font-size: 16px;
 }
 .services.btn {
   background-color: #1a2238;

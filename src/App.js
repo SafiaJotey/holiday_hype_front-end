@@ -3,12 +3,17 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import AddServices from './Components/AddServices/AddServices';
 import AllServices from './Components/AllServices/AllServices';
+import Blog from './Components/Blog/Blog';
+import PublishBlog from './Components/Blog/PublishBlog';
+import BlogDetails from './Components/BlogDetails/BlogDetails';
 import Booking from './Components/Booking/Booking';
 import AuthProvider from './Components/Context/AuthProvider';
 import Footer from './Components/Footer/Footer';
 import Header from './Components/Header/Header';
 import ManageOrder from './Components/ManageOrders/ManageOrder';
+import MyBlogs from './Components/MyBlogs/MyBlogs';
 import MyOrders from './Components/MyOrders/MyOrders';
+import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 import Error from './Pages/Error/Error';
 import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
@@ -46,6 +51,10 @@ function App() {
               <Booking></Booking>
             </PrivateRoute>
 
+            <PrivateRoute path="/myBlog/:email">
+              <MyBlogs></MyBlogs>
+            </PrivateRoute>
+
             <PrivateRoute exact path="/myOrder">
               <MyOrders></MyOrders>
             </PrivateRoute>
@@ -59,14 +68,21 @@ function App() {
             <Route path="/register">
               <Register></Register>
             </Route>
-            {/* <PrivateRoute path="/ServiceDetails/:id">
-            <ServiceDetails></ServiceDetails>
-          </PrivateRoute>
-
- */}
+            <PrivateRoute path="/dashboard">
+              <Dashboard></Dashboard>
+            </PrivateRoute>
             <Route path="/addServices">
               <AddServices></AddServices>
             </Route>
+            <Route path="/addBlog">
+              <Blog></Blog>
+            </Route>
+            <Route path="/details/:blogId">
+              <BlogDetails></BlogDetails>
+            </Route>
+            <PrivateRoute path="/publish">
+              <PublishBlog></PublishBlog>
+            </PrivateRoute>
 
             <Route path="*">
               <Error></Error>
