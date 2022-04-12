@@ -6,7 +6,7 @@ const MyBlogs = () => {
   const [blogs, setBlogs] = useState([]);
   const { user } = useAuth();
   useEffect(() => {
-    fetch(`http://localhost:5000/myBlog/${user.email}`)
+    fetch(`https://guarded-scrubland-87252.herokuapp.com/myBlog/${user.email}`)
       .then((res) => res.json())
       .then((data) => setBlogs(data));
   }, []);

@@ -11,7 +11,7 @@ const MyOrders = () => {
   const [control, setControl] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/myOrder/${user.email}`)
+    fetch(`https://guarded-scrubland-87252.herokuapp.com/myOrder/${user.email}`)
       .then((res) => res.json())
       .then((data) => setServices(data));
   }, [control]);
@@ -27,9 +27,12 @@ const MyOrders = () => {
         swal('The package is deleted', {
           icon: 'success',
         });
-        fetch(`http://localhost:5000/deleteOrder/${id}`, {
-          method: 'DELETE',
-        })
+        fetch(
+          `https://guarded-scrubland-87252.herokuapp.com/deleteOrder/${id}`,
+          {
+            method: 'DELETE',
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             console.log(data);

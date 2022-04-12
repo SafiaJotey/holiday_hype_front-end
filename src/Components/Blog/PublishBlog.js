@@ -31,7 +31,7 @@ const PublishBlog = () => {
         swal('The blog is Submitted ', {
           icon: 'success',
         });
-        fetch('http://localhost:5000/addBlog', {
+        fetch('https://guarded-scrubland-87252.herokuapp.com/addBlog', {
           method: 'POST',
           headers: { 'content-type': 'application/json' },
           body: JSON.stringify(data),

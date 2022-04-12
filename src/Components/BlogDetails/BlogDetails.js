@@ -5,7 +5,7 @@ const BlogDetails = () => {
   const [blog, setBlog] = useState([]);
   const { blogId } = useParams();
   useEffect(() => {
-    fetch(`http://localhost:5000/details/${blogId}`)
+    fetch(`https://guarded-scrubland-87252.herokuapp.com/details/${blogId}`)
       .then((res) => res.json())
       .then((data) => setBlog(data));
   }, []);

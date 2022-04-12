@@ -18,7 +18,7 @@ const Blog = () => {
     },
   };
   useEffect(() => {
-    fetch('http://localhost:5000/blogs')
+    fetch('https://guarded-scrubland-87252.herokuapp.com/blogs')
       .then((res) => res.json())
       .then((data) => setBlogs(data));
   }, []);

@@ -17,7 +17,9 @@ const Booking = () => {
   const { user } = useAuth();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/singleProduct/${serviceId}`)
+    fetch(
+      `https://guarded-scrubland-87252.herokuapp.com/singleProduct/${serviceId}`
+    )
       .then((res) => res.json())
       .then((data) => setService(data));
   }, []);
@@ -43,7 +45,7 @@ const Booking = () => {
         swal('Done.This item is added to your order list.', {
           icon: 'success',
         });
-        fetch(' http://localhost:5000/confirmOrder', {
+        fetch(' https://guarded-scrubland-87252.herokuapp.com/confirmOrder', {
           method: 'POST',
           headers: { 'content-type': 'application/json' },
           body: JSON.stringify(data),
