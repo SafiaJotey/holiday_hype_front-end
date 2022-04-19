@@ -11,7 +11,7 @@ const AllServices = () => {
   }, []);
 
   return (
-    <div className="p-3 country">
+    <div className="p-3 country" id="packages">
       <div className="package">
         <h2>
           Visit Beautiful <span className="highlight">Bangladesh</span>
