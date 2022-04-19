@@ -46,8 +46,7 @@ const About = () => {
                 <h4>Informative Blogs</h4>
                 <p className="ms-5">
                   Our clients and user are always sharing about their tour
-                  experiences. Reading those blogs You also can get idea about
-                  attractive spots of Bangladesh.
+                  experiences.
                 </p>
               </div>
             </div>

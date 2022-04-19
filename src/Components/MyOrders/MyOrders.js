@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Modal } from 'react-bootstrap';
 import swal from 'sweetalert';
 import useAuth from './../Hooks/useAuth';
 import './MyOrders.css';
@@ -9,7 +8,6 @@ const MyOrders = () => {
   const [modalShow, setModalShow] = useState(false);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
-  // const handleShow = () => setShow(true);
 
   const [services, setServices] = useState([]);
 
@@ -45,16 +43,13 @@ const MyOrders = () => {
       }
     });
   };
-  const handlePay = (id) => {
-    console.log(id);
-    setShow(true);
-  };
 
   return (
     <div className="container">
-      <h1 className="order my-5">
+      <h1 className="order mt-5">
         Orders of <span className="highlight">{user.displayName}</span>{' '}
       </h1>
+      <p className="mb-5">Confirm your order by online payment</p>
       {services.length === 0 ? (
         <div className="d-flex justify-content-center">
           <h5>You haven't placed any order yet!</h5>
@@ -89,111 +84,9 @@ const MyOrders = () => {
                           <p>paid</p>
                         ) : (
                           <div>
-                            <button
-                              onClick={() => handlePay(service?._id)}
-                              className="btn-success rounded px-4 py-2 m-1 "
-                            >
+                            <button className="btn-success rounded px-4 py-2 m-1 ">
                               pay
                             </button>
-                            <Modal show={show} onHide={handleClose}>
-                              <Modal.Header closeButton>
-                                <Modal.Title>Modal heading</Modal.Title>
-                              </Modal.Header>
-                              <Modal.Body>
-                                {/* <form onSubmit={handleSubmit(onSubmit)}>
-                    <input
-                      {...register('Username')}
-                      defaultValue={user?.displayName}
-                      className="p-2 m-2 w-100"
-                    />
-                    <br />
-                    <input
-                      {...register('Email')}
-                      defaultValue={user?.email}
-                      className="p-2 m-2 w-100"
-                    />
-                    <br />
-                    {service?.ModelName && (
-                      <input
-                        {...register('name')}
-                        defaultValue={service?.ModelName}
-                        className="p-2 m-2 w-100"
-                        readOnly
-                      />
-                    )}
-                    {service?.location && (
-                      <input
-                        {...register('location')}
-                        defaultValue={service?.location}
-                        className="p-2 m-2 w-100"
-                        readOnly
-                      />
-                    )}
-
-                    <br />
-
-                    {service?.price && (
-                      <input
-                        {...register('price')}
-                        defaultValue={service?.price}
-                        className="p-2 m-2 w-100"
-                      />
-                    )}
-
-                    {service?.image && (
-                      <input
-                        className="d-none "
-                        {...register('image')}
-                        defaultValue={service?.image}
-                      />
-                    )}
-
-                    <input
-                      {...register('Address', { required: true })}
-                      placeholder="Enter your proper Address to confirm the order"
-                      className="p-2 m-2 w-100"
-                    />
-                    {errors.Address && (
-                      <span className="text-danger">
-                        This field is required
-                      </span>
-                    )}
-                    <br />
-                    <input
-                      {...register('Mobile', {
-                        required: true,
-                        pattern: {
-                          value: /^[0-9]*$/,
-                          message: 'Only numbers are allowed',
-                        },
-                      })}
-                      onKeyUp={() => {
-                        trigger('Mobile');
-                      }}
-                      placeholder="Enter your Contact Number"
-                      className="p-2 m-2 w-100"
-                    />
-                    {errors.Mobile && (
-                      <small className="text-danger">
-                        {errors.Mobile.message}
-                      </small>
-                    )}
-                    {errors.Address && (
-                      <span className="text-danger">
-                        This field is required
-                      </span>
-                    )}
-
-                    <br />
-
-                    <input
-                      type="submit"
-                      value="Place Booking"
-                      className="btn "
-                    />
-                  </form> */}
-                              </Modal.Body>
-                            </Modal>
                           </div>
                         )}
                         <button
