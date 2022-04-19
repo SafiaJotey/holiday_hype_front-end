@@ -4,7 +4,9 @@ import './About.css';
 const About = () => {
   return (
     <div className="container vision my-5">
-      <h2>ABOUT US </h2>
+      <h2>
+        ABOUT <span className="highlight">US</span>
+      </h2>
       <p className="title-paragraph">
         Bangladesh, beautiful country of south-central Asia, located in the
         delta of the Padma (Ganges [Ganga]) and Jamuna (Brahmaputra) rivers in
@@ -62,7 +64,7 @@ const About = () => {
                 <h4>Share Your Experiences</h4>
                 <p className="ms-5">
                   You can write blogs on your experiences too so that people can
-                  get a idea about those places.{' '}
+                  get a ideas.{' '}
                 </p>
               </div>
             </div>

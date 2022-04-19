@@ -37,7 +37,9 @@ const Faq = () => {
   };
   return (
     <div className="container">
-      <h3>Frequently asked questions </h3>
+      <h3>
+        <span className="highlight">Frequently asked</span> questions{' '}
+      </h3>
       <p>
         Here are some questions which are frequently asked by our users.Also
         feel free to connect with us.{' '}

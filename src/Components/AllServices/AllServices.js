@@ -13,7 +13,9 @@ const AllServices = () => {
   return (
     <div className="p-3 country">
       <div className="package">
-        <h2>Visit Beautiful Bangladesh</h2>
+        <h2>
+          Visit Beautiful <span className="highlight">Bangladesh</span>
+        </h2>
         <p className="title-paragraph package">
           Welcome to beautyful Bangladesh.Bangladesh is situated in the
           north-east part of South Asia which is blessed with natural beauty,
@@ -35,7 +37,7 @@ const AllServices = () => {
                 <h6>{service?.title}</h6>
 
                 <p>{service?.subTitle}</p>
-                <h3 className="text-danger"> Cost : $ {service?.price}</h3>
+                <h3 className="text-warning"> Cost : $ {service?.price}</h3>
                 <Link to={`/booking/${service._id}`}>
                   <button className="btn ">Details</button>
                 </Link>

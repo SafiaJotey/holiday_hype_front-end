@@ -25,27 +25,28 @@ h4 {
   text-align: justify;
 }
 .card {
-  background-color: #f8f8f6;
+  background-color: #fcfcf9;
   border-radius: 10px;
   margin: 10px 0;
 }
 .card:hover {
-  border: 2px solid #1a2238;
+  border: 2px solid #fcc757;
   background-color: transparent;
   color: rgb(37, 37, 37);
 }
 .card h4 {
   font-weight: 700;
+  color: #1a2238;
 }
 .card p {
   font-size: 16px;
 }
 .card a {
-  padding: 30px 35px;
+  padding: 25px 30px;
   background-color: #1a2238;
   border-radius: 50%;
-  color: white;
+  color: #fcc757;
   border: 1px solid #1a2238;
-  font-size: 35px;
+  font-size: 25px;
   margin: 10px 0;
 }
