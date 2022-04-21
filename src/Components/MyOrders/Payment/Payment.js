@@ -40,11 +40,11 @@ const Payment = () => {
       </div>
       <div class="row d-flex justify-content-center align-items-center">
         <div class="col-md-7">
-          <h3 className="">Pay for: {order?.name} package</h3>
+          <h5 className="">Pay for: {order?.name} package</h5>
           <p>Location: {order?.location} </p>
           <p className="text-warning fw-bold">Cost: $ {order?.price} </p>
           <Elements stripe={stripePromise}>
-            <CheckOutForm />
+            <CheckOutForm order={order} />
           </Elements>
         </div>
         <div class="col-md-5">

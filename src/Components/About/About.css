@@ -12,46 +12,21 @@ h4 {
   color: #1a2238;
 }
 .img {
-  border-radius: 20px;
+  /* border-radius: 20px; */
   border: 2px solid #1a2238;
   width: 100%;
 }
 .vision .title-paragraph {
-  font-size: 18px;
+  font-size: 14px;
   text-align: center;
 }
-.vision p {
-  font-size: 14px;
-  text-align: justify;
-}
-.card {
+
+/* .card {
   background-color: #fcfcf9;
   border-radius: 10px;
   margin: 10px 0;
-}
-.card:hover {
-  border: 2px solid #fcc757;
-  background-color: transparent;
-  color: rgb(37, 37, 37);
-}
-.card h4 {
-  font-weight: 700;
-  color: #1a2238;
-}
-.card p {
-  font-size: 16px;
-  color: #1a2238;
-  font-weight: 400;
-}
-.card a {
-  padding: 25px 30px;
-  background-color: #1a2238;
-  border-radius: 50%;
-  color: #fcc757;
-  border: 1px solid #fcc757;
-  font-size: 25px;
-  margin: 10px 0;
-}
+} */
+
 .about {
   margin: -6px 0px;
 }
