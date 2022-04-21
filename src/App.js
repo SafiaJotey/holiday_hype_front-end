@@ -13,6 +13,7 @@ import Header from './Components/Header/Header';
 import ManageOrder from './Components/ManageOrders/ManageOrder';
 import MyBlogs from './Components/MyBlogs/MyBlogs';
 import MyOrders from './Components/MyOrders/MyOrders';
+import Payment from './Components/MyOrders/Payment/Payment';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 import Error from './Pages/Error/Error';
 import Home from './Pages/Home/Home';
@@ -57,6 +58,9 @@ function App() {
 
             <PrivateRoute exact path="/myOrder">
               <MyOrders></MyOrders>
+            </PrivateRoute>
+            <PrivateRoute path="/payment/:orderId">
+              <Payment></Payment>
             </PrivateRoute>
             <PrivateRoute exact path="/manageOrder">
               <ManageOrder></ManageOrder>

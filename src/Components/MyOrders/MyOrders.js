@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import swal from 'sweetalert';
 import useAuth from './../Hooks/useAuth';
 import './MyOrders.css';
@@ -55,53 +56,57 @@ const MyOrders = () => {
           <h5>You haven't placed any order yet!</h5>
         </div>
       ) : (
-        <div class="">
-          <div class="row g-0 d-flex justify-content-between align-items-center">
-            {services.map((service) => (
-              <div
-                className="col-md-6 card p-2 
+        <div class="row g-0 d-flex justify-content-between align-items-center">
+          {services.map((service) => (
+            <div
+              className="col-md-6 card 
        services mb-3  "
-                style={{ maxWidth: '540px' }}
-              >
-                <div className="row   m-1">
-                  <div class="col-md-7 ">
-                    <img className="w-100 h-100" src={service?.image} alt="" />
-                  </div>
-                  <div class="col-md-5">
-                    <div class="card-body text-start">
-                      <h6>Place:{service?.name}</h6>
-                      <p>Location:{service?.location}</p>
+              style={{ maxWidth: '550px' }}
+            >
+              <div className="row   m-1">
+                <div class="col-md-5 ">
+                  <img
+                    className="w-100 h-75 mt-2"
+                    src={service?.image}
+                    alt=""
+                  />
+                </div>
+                <div class="col-md-7">
+                  <div class="card-body text-start">
+                    <h6>Place:{service?.name}</h6>
+                    <p>Location:{service?.location}</p>
 
-                      <h6 className="text-danger">
-                        {' '}
-                        Total Cost :$ {service?.price}
-                      </h6>
-                      <p>UserName:{service?.Username}</p>
-                      <p>Address:{service?.Address}</p>
-                      <p className="text-danger">Status:{service?.status}</p>
-                      <div className="d-flex">
-                        {service.payment ? (
-                          <p>paid</p>
-                        ) : (
+                    <h6 className="text-danger">
+                      {' '}
+                      Total Cost :$ {service?.price}
+                    </h6>
+                    <p>UserName:{service?.Username}</p>
+                    <p>Address:{service?.Address}</p>
+                    <p className="text-danger">Status:{service?.status}</p>
+                    <div className="d-flex justify-content-start align-items-center">
+                      {service.payment ? (
+                        <p>paid</p>
+                      ) : (
+                        <Link to={`/payment/${service._id}`} className="pay">
                           <div>
-                            <button className="btn-success rounded px-4 py-2 m-1 ">
+                            <button className="rounded fs-6 px-3 py-1 m-1  btn-success">
                               pay
                             </button>
                           </div>
-                        )}
-                        <button
-                          onClick={() => handleDelete(service?._id)}
-                          className=" btn-danger rounded px-4 py-2 m-1"
-                        >
-                          Cancel
-                        </button>
-                      </div>
+                        </Link>
+                      )}
+                      <button
+                        onClick={() => handleDelete(service?._id)}
+                        className=" buttonCancel   fs-6 px-3 py-1 btn-danger rounded m-1"
+                      >
+                        Cancel
+                      </button>
                     </div>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       )}
     </div>

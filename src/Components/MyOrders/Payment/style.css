@@ -1,0 +1,17 @@
+.StripeElement {
+  border: 1px solid #eee;
+  padding: 5px;
+  border-radius: 2px;
+  margin-bottom: 5px;
+}
+
+.StripeElement--invalid {
+  border: 1px solid red;
+}
+.buttonPayment {
+  margin: 5px 0;
+  padding: 3px 30px;
+  border-radius: 5px;
+  background-color: #1a2238;
+  color: white;
+}

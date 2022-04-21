@@ -108,10 +108,10 @@ const Booking = () => {
                       className="p-2 m-2 w-100"
                     />
                     <br />
-                    {service?.ModelName && (
+                    {service?.title && (
                       <input
                         {...register('name')}
-                        defaultValue={service?.ModelName}
+                        defaultValue={service?.title}
                         className="p-2 m-2 w-100"
                         readOnly
                       />

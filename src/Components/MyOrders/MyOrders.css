@@ -2,14 +2,9 @@
   color: #1a2238;
   margin: 50px 0;
 }
-.services p {
-  font-size: 16px;
-}
-.services.btn {
-  background-color: #1a2238;
-  color: white;
-  outline: none;
-  border: none;
-  padding: 2% 20%;
-  border-radius: 40px;
+
+.pay {
+  background-color: transparent !important;
+  border: none !important;
+  padding: 0 !important;
 }

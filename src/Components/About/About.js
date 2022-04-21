@@ -4,7 +4,7 @@ import about from '../../Images/about.jpg';
 import './About.css';
 const About = () => {
   return (
-    <div className="container vision my-5">
+    <div className="container vision my-5" id="about">
       <h2>
         ABOUT <span className="highlight">US</span>
       </h2>

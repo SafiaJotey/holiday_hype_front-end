@@ -30,7 +30,11 @@ const Banner = () => {
               the article to find out a few most important things to know before
               going on a one-year trip around the world.
             </p>
-            <button className="mt-3 about-btn">Know more</button>
+            <button className="mt-3 about-btn">
+              <a href="home#about" className="aboutLink">
+                Know more
+              </a>
+            </button>
           </div>
           <div className="col-md-6  ">
             <div className=" pe-none">
