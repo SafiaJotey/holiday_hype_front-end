@@ -1,6 +1,6 @@
 .service-card {
-  background-color: #f8f8f6;
-  border-radius: 20px;
+  background-color: #fcfcfc;
+  border-radius: 2px;
   min-height: 300px;
 }
 .country h2 {
@@ -27,5 +27,5 @@
   outline: none;
   border: none;
   padding: 10px 34px;
-  border-radius: 40px;
+  border-radius: 5px;
 }

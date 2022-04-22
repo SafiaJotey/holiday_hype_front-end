@@ -2,6 +2,7 @@ import React from 'react';
 import { Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import logo from '../../Images/logo.png';
+import Social from '../Social/Social';
 import './Footer.css';
 
 const Footer = () => {
@@ -31,6 +32,23 @@ const Footer = () => {
                 <p className="mt-5">
                   <small>DreamTravel © . All rights reserved.</small>
                 </p>
+              </div>
+              <div className="social">
+                <div>
+                  <a href="#">
+                    <i className="fab fa-facebook-f"></i>
+                  </a>
+                </div>
+                <div>
+                  <a href="#">
+                    <i className="fab fa-twitter"></i>
+                  </a>
+                </div>
+                <div>
+                  <a href="#">
+                    <i className="fab fa-instagram"></i>
+                  </a>
+                </div>
               </div>
             </div>
             <div className="col-md-2">

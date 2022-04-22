@@ -20,11 +20,12 @@ const Banner = () => {
       <div className="banner">
         <div className="row d-flex  align-items-center justify-content-center">
           <div className="col-md-6 p-5">
+            <h5>WELCOME TO </h5>
             <h1 className="title ">
-              WELCOME TO <br />
+              {' '}
               <span className="highlight">HOLIDAY</span> HYPE
             </h1>
-            <p className=" text-center mt-5">
+            <p className=" text-justify ">
               Are you thinking about going on a long trip around the world, too,
               but don’t know how to go about planning such an endeavour? Read
               the article to find out a few most important things to know before

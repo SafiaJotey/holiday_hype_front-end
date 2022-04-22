@@ -18,13 +18,14 @@
   font-weight: bold;
   font-size: 38px;
 }
+
 .about-btn {
   background-color: #1a2238;
   color: white;
   outline: none;
   border: none;
   padding: 10px 34px;
-  border-radius: 40px;
+  border-radius: 5px;
 }
 .about-btn:hover {
   background-color: transparent;
@@ -35,4 +36,7 @@
 }
 .about-btn:hover .aboutLink {
   color: #1a2238;
+}
+.banner h5 {
+  font-weight: 700;
 }

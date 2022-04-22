@@ -27,3 +27,7 @@
   color: rgb(248, 244, 244);
   text-align: center;
 }
+.footer-container .social a {
+  color: white;
+  font-size: 22px;
+}
