@@ -1,11 +1,32 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Spinner } from 'react-bootstrap';
+import useAuth from '../../Hooks/useAuth';
 import './style.css';
 
 const CheckOutForm = ({ order }) => {
+  const { user } = useAuth();
+  const { price, username, _id } = order;
   const stripe = useStripe();
   const elements = useElements();
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
+  const [processing, setProcessing] = useState(false);
+  const [clientSecret, setClientSecret] = useState([]);
+  useEffect(() => {
+    fetch(
+      'https://guarded-scrubland-87252.herokuapp.com/create-payment-intent',
+      {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify({ price }),
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => setClientSecret(data.clientSecret));
+  }, [price]);
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!stripe || !elements) {
@@ -22,6 +43,7 @@ const CheckOutForm = ({ order }) => {
     if (card == null) {
       return;
     }
+    setProcessing(true);
 
     // Use your card Element with other Stripe.js APIs
     const { error, paymentMethod } = await stripe.createPaymentMethod({
@@ -31,11 +53,49 @@ const CheckOutForm = ({ order }) => {
 
     if (error) {
       setError(error.message);
+      setSuccess(' ');
     } else {
       setError('');
       console.log('[PaymentMethod]', paymentMethod);
     }
+    const { paymentIntent, error: intentError } =
+      await stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+          card: card,
+          billing_details: {
+            name: username,
+            email: user.email,
+          },
+        },
+      });
+    if (intentError) {
+      setError(intentError.message);
+      setSuccess(' ');
+    } else {
+      setError(' ');
+      console.log(paymentIntent);
+      setSuccess('Your payment processed successfully');
+      setProcessing(false);
+      //save to database
+      const payment = {
+        amount: paymentIntent.amount,
+        created: paymentIntent.created,
+        last4: paymentMethod.card.last4,
+        clientSecret: paymentIntent.client_secret.slice('_secret')[0],
+      };
+      const url = `https://guarded-scrubland-87252.herokuapp.com/myOrder/${_id}`;
+      fetch(url, {
+        method: 'PUT',
+        headers: {
+          'content-type': 'application.json',
+        },
+        body: JSON.stringify(payment),
+      })
+        .then((res) => res.json())
+        .then((data) => console.log(data));
+    }
   };
+
   return (
     <div>
       {' '}
@@ -56,11 +116,16 @@ const CheckOutForm = ({ order }) => {
             },
           }}
         />
-        <button className="buttonPayment" type="submit" disabled={!stripe}>
-          Pay ${order?.price}
-        </button>
+        {processing ? (
+          <Spinner animation="border" variant="danger" />
+        ) : (
+          <button className="buttonPayment" type="submit" disabled={!stripe}>
+            Pay ${order?.price}
+          </button>
+        )}
       </form>
       {error && <p className="text-danger">{error}</p>}
+      {success && <p className="text-success">{success}</p>}
     </div>
   );
 };

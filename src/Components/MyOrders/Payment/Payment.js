@@ -13,6 +13,7 @@ const stripePromise = loadStripe(
 const Payment = () => {
   const { orderId } = useParams();
   const [order, setOrder] = useState([]);
+
   const isTablet = useMediaQuery('(min-width: 656px)');
   const isDesktop = useMediaQuery('(min-width: 900px)');
   const defaultOptions = {
@@ -23,8 +24,9 @@ const Payment = () => {
       preserveAspectRatio: 'xMidYMid slice',
     },
   };
+
   useEffect(() => {
-    fetch(`http://localhost:5000/payment/${orderId}`)
+    fetch(`https://guarded-scrubland-87252.herokuapp.com/payment/${orderId}`)
       .then((res) => res.json())
       .then((data) => setOrder(data));
   }, [orderId]);
@@ -43,9 +45,11 @@ const Payment = () => {
           <h5 className="">Pay for: {order?.name} package</h5>
           <p>Location: {order?.location} </p>
           <p className="text-warning fw-bold">Cost: $ {order?.price} </p>
-          <Elements stripe={stripePromise}>
-            <CheckOutForm order={order} />
-          </Elements>
+          {order?.price && (
+            <Elements stripe={stripePromise}>
+              <CheckOutForm order={order} />
+            </Elements>
+          )}
         </div>
         <div class="col-md-5">
           {' '}

@@ -82,25 +82,31 @@ const MyOrders = () => {
                     </h6>
                     <p>UserName:{service?.Username}</p>
                     <p>Address:{service?.Address}</p>
-                    <p className="text-danger">Status:{service?.status}</p>
+                    {/* <p className="text-success">Status:{service?.status}</p> */}
                     <div className="d-flex justify-content-start align-items-center">
                       {service.payment ? (
-                        <p>paid</p>
+                        <p className="text-success m-2">paid.</p>
                       ) : (
                         <Link to={`/payment/${service._id}`} className="pay">
                           <div>
-                            <button className="rounded fs-6 px-3 py-1 m-1  btn-success">
+                            <button className="rounded fs-6 px-3 py-1 m-1  btn-success d-flex justify-content-start align-items-center">
                               pay
                             </button>
                           </div>
                         </Link>
                       )}
-                      <button
-                        onClick={() => handleDelete(service?._id)}
-                        className=" buttonCancel   fs-6 px-3 py-1 btn-danger rounded m-1"
-                      >
-                        Cancel
-                      </button>
+                      {service.payment ? (
+                        <p className="text-success my-2">
+                          Have a great holiday!
+                        </p>
+                      ) : (
+                        <button
+                          onClick={() => handleDelete(service?._id)}
+                          className=" buttonCancel   fs-6 px-3 py-1 btn-danger rounded m-1"
+                        >
+                          Cancel
+                        </button>
+                      )}
                     </div>
                   </div>
                 </div>

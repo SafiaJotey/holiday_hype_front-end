@@ -2,7 +2,9 @@
   background-color: #fcfcfc;
   border-radius: 2px;
   min-height: 300px;
+  position: relative;
 }
+
 .country h2 {
   color: #1a2238;
   font-weight: 700;
@@ -18,7 +20,7 @@
 }
 
 .service-card p {
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .service-card .btn {

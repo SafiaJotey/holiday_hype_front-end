@@ -37,7 +37,7 @@ const AllServices = () => {
                 <h6>{service?.title}</h6>
 
                 <p>{service?.subTitle}</p>
-                <h3 className="text-warning"> Cost : $ {service?.price}</h3>
+                <h5 className="text-warning"> Cost : $ {service?.price}</h5>
                 <Link to={`/booking/${service._id}`}>
                   <button className="btn ">Details</button>
                 </Link>
@@ -45,6 +45,7 @@ const AllServices = () => {
             </div>
           ))}
         </div>
+        <div className="tag"></div>
       </div>
     </div>
   );
