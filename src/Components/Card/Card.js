@@ -19,6 +19,7 @@ const Card = () => {
                     Choose your one and have a affordable, beautiful vacation to
                     you dream country{' '}
                   </p>
+                  <small className="text-warning">click to Know more</small>
                 </div>
               </div>
             </div>
@@ -37,6 +38,7 @@ const Card = () => {
                     Our clients and user are always sharing about their tour
                     experiences.
                   </p>
+                  <small className="text-warning">click to Know more</small>
                 </div>
               </div>
             </div>
@@ -57,6 +59,7 @@ const Card = () => {
                     You can write blogs on your experiences too so that people
                     can get a ideas.{' '}
                   </p>
+                  <small className="text-warning">click to Know more</small>
                 </div>
               </div>
             </div>
