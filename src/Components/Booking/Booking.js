@@ -3,7 +3,7 @@ import { Button, Modal } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router';
 import swal from 'sweetalert';
-import useAuth from './../Hooks/useAuth';
+import useAuth from '../Hooks/useAuth';
 import './Booking.css';
 
 const Booking = () => {

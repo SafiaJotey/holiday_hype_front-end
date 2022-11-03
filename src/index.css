@@ -6,7 +6,24 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+/* h2 {
+  color: #1a2238;
+  font-size: 36px;
+  font-weight: 700;
+}
 
+h4 {
+  color: #1a2238;
+}
+.primer {
+  color: #1a2238;
+}
+.seconder {
+  color: #b8e178;
+}
+.highlight {
+  color: #ffb925;
+} */
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
