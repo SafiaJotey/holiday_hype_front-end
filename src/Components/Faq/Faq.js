@@ -48,7 +48,7 @@ const Faq = () => {
         <div className="col-md-6 ">
           <div className="col-12">
             {' '}
-            <img src={faq} alt="" />
+            <img className="w-100" src={faq} alt="" />
           </div>
           <div className="col-12">
             <Accordion>

@@ -16,12 +16,12 @@ const Banner = () => {
     },
   };
   return (
-    <div className="banner-container ">
-      <div className="banner">
-        <div className="row d-flex  align-items-center justify-content-center">
-          <div className="col-md-6 p-5">
+    <div className="bg-dark d-flex justify-content-center py-5  ">
+      <div className="bg-dark">
+        <div className="row d-flex  align-items-center justify-content-center w-100 ">
+          <div className="col-md-6  p-4">
             <h5>WELCOME TO </h5>
-            <h1 className="title ">
+            <h1 className="text-Primary fs-1 ">
               {' '}
               <span className="highlight">HOLIDAY</span> HYPE
             </h1>
@@ -32,7 +32,7 @@ const Banner = () => {
               going on a one-year trip around the world.
             </p>
             <button className="mt-3 about-btn">
-              <a href="home#about" className="aboutLink">
+              <a href="home#about" className="aboutLink text-decoration-none">
                 Know more
               </a>
             </button>
@@ -42,7 +42,7 @@ const Banner = () => {
               <Lottie
                 options={defaultOptions}
                 isClickToPauseDisabled={true}
-                width={isDesktop ? 600 : isTablet ? 400 : 300}
+                width={isDesktop ? 600 : isTablet ? 400 : 250}
               />
             </div>
           </div>

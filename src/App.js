@@ -8,7 +8,6 @@ import PublishBlog from './Components/Blog/PublishBlog';
 import BlogDetails from './Components/BlogDetails/BlogDetails';
 import Booking from './Components/Booking/Booking';
 import AuthProvider from './Components/Context/AuthProvider';
-import Footer from './Components/Footer/Footer';
 import Header from './Components/Header/Header';
 import ManageOrder from './Components/ManageOrders/ManageOrder';
 import MyBlogs from './Components/MyBlogs/MyBlogs';
@@ -92,7 +91,7 @@ function App() {
               <Error></Error>
             </Route>
           </Switch>
-          <Footer></Footer>
+          {/* <Footer></Footer> */}
         </Router>
       </AuthProvider>
     </div>
