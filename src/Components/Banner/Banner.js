@@ -2,7 +2,6 @@ import React from 'react';
 import Lottie from 'react-lottie';
 import animationData from '../../lotties/banner.json';
 import useMediaQuery from '../Hooks/useMediaQuery';
-import './Banner.css';
 
 const Banner = () => {
   const isTablet = useMediaQuery('(min-width: 656px)');
@@ -20,19 +19,22 @@ const Banner = () => {
       <div className="bg-dark">
         <div className="row d-flex  align-items-center justify-content-center w-100 ">
           <div className="col-md-6  p-4">
-            <h5>WELCOME TO </h5>
+            <h5 className="text-Primary fs-6 fw-bold ">WELCOME TO </h5>
             <h1 className="text-Primary fs-1 ">
               {' '}
-              <span className="highlight">HOLIDAY</span> HYPE
+              <span className="text-secondary fw-bold">HOLIDAY</span> HYPE
             </h1>
-            <p className=" text-justify ">
+            <p className=" text-justify  px-4">
               Are you thinking about going on a long trip around the world, too,
               but don’t know how to go about planning such an endeavour? Read
               the article to find out a few most important things to know before
               going on a one-year trip around the world.
             </p>
-            <button className="mt-3 about-btn">
-              <a href="home#about" className="aboutLink text-decoration-none">
+            <button className="mt-3 bg-primary  px-3 py-2 rounded border border-secondary border-start-3">
+              <a
+                href="home#about"
+                className="aboutLink text-decoration-none text-white"
+              >
                 Know more
               </a>
             </button>
