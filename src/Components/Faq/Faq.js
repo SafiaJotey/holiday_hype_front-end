@@ -37,8 +37,8 @@ const Faq = () => {
   };
   return (
     <div className="container">
-      <h3>
-        <span className="highlight">Frequently asked</span> questions{' '}
+      <h3 className="text-primary">
+        <span className="text-secondary">Frequently asked</span> questions{' '}
       </h3>
       <p>
         Here are some questions which are frequently asked by our users.Also
@@ -95,9 +95,9 @@ const Faq = () => {
           </div>
         </div>
         <div className="col-md-6 ps-md-5 ">
-          <p className="formParagraph ">
-            For any query feel free to message us
-          </p>
+          <small className=" text-gray  ">
+            For any queries feel free to message us
+          </small>
           <form className="w-100   ps-md-5" ref={form} onSubmit={sendEmail}>
             <input
               className=" w-100  bg-gray-100 px-5 outline-none border-2 py-2 focus:border-primary  rounded my-1"
@@ -150,7 +150,7 @@ const Faq = () => {
             </div>
 
             <input
-              className="formBtn  px-6 md:w-2/6   py-2 text-white mx-auto lg:ml-0 rounded-md f"
+              className="   bg-primary  px-5 py-2 rounded border border-secondary border-start-3   py-2 text-white mx-auto  rounded-md "
               type="submit"
               value="Send"
             />

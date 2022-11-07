@@ -31,10 +31,7 @@ const Banner = () => {
               going on a one-year trip around the world.
             </p>
             <button className="mt-3 bg-primary  px-3 py-2 rounded border border-secondary border-start-3">
-              <a
-                href="home#about"
-                className="aboutLink text-decoration-none text-white"
-              >
+              <a href="home#about" className=" text-decoration-none text-white">
                 Know more
               </a>
             </button>

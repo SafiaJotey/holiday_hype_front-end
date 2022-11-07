@@ -3,7 +3,7 @@ import About from '../../Components/About/About';
 // import AllServices from '../../Components/AllServices/AllServices';
 import Banner from '../../Components/Banner/Banner';
 import Card from '../../Components/Card/Card';
-// import Faq from '../../Components/Faq/Faq';
+import Faq from '../../Components/Faq/Faq';
 // import Social from '../../Components/Social/Social';
 
 const Home = () => {
@@ -12,9 +12,9 @@ const Home = () => {
       <Banner></Banner>
       <Card></Card>
       <About></About>
-      {/*  <AllServices></AllServices>
+      {/* <AllServices></AllServices> */}
       <Faq></Faq>
-      <Social></Social> */}
+      {/* <Social></Social> */}
     </div>
   );
 };
