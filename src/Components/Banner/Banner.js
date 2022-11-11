@@ -15,9 +15,11 @@ const Banner = () => {
     },
   };
   return (
-    <div className="bg-dark d-flex justify-content-center py-5  ">
-      <div className="bg-dark">
-        <div className="row d-flex  align-items-center justify-content-center w-100 ">
+    <div className="bg-dark d-flex justify-content-center py-5 ">
+      <div
+      // className="bg-dark"
+      >
+        <div className="bg-dark  row d-flex  align-items-center justify-content-center w-100 ">
           <div className="col-md-6  p-4">
             <h5 className="text-Primary fs-6 fw-bold ">WELCOME TO </h5>
             <h1 className="text-Primary fs-1 ">

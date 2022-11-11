@@ -2,7 +2,7 @@ import React from 'react';
 import { Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import logo from '../../Images/logo.png';
-import Social from '../Social/Social';
+
 import './Footer.css';
 
 const Footer = () => {
@@ -14,7 +14,7 @@ const Footer = () => {
             <div className="col-md-5">
               <div className="left-container text-center">
                 <div>
-                  <img src={logo} alt="" />
+                  <img className="w-75" src={logo} alt="" />
                 </div>
 
                 <p className="mt-4 ">
@@ -33,20 +33,20 @@ const Footer = () => {
                   <small>DreamTravel © . All rights reserved.</small>
                 </p>
               </div>
-              <div className="social">
+              <div className="d-flex justify-content-center align-items-center">
                 <div>
-                  <a href="#">
-                    <i className="fab fa-facebook-f"></i>
+                  <a href="https://www.facebook.com/">
+                    <i className="fab fa-facebook-f text-white p-2"></i>
                   </a>
                 </div>
                 <div>
-                  <a href="#">
-                    <i className="fab fa-twitter"></i>
+                  <a href="https://www.facebook.com/">
+                    <i className="fab fa-twitter text-white p-2"></i>
                   </a>
                 </div>
                 <div>
-                  <a href="#">
-                    <i className="fab fa-instagram"></i>
+                  <a href="https://www.facebook.com/">
+                    <i className="fab fa-instagram text-white p-2"></i>
                   </a>
                 </div>
               </div>

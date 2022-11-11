@@ -4,7 +4,6 @@ import { Accordion } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import swal from 'sweetalert';
 import faq from '../../Images/faq.png';
-import './Faq.css';
 
 const Faq = () => {
   const form = useRef();
@@ -44,11 +43,11 @@ const Faq = () => {
         Here are some questions which are frequently asked by our users.Also
         feel free to connect with us.{' '}
       </p>
-      <div className="row d-flex justify-content-between align-items-center">
+      <div className="row d-flex justify-content-between  align-items-end my-5 ">
         <div className="col-md-6 ">
           <div className="col-12">
             {' '}
-            <img className="w-100" src={faq} alt="" />
+            <img className="w-50" src={faq} alt="" />
           </div>
           <div className="col-12">
             <Accordion>
@@ -95,12 +94,12 @@ const Faq = () => {
           </div>
         </div>
         <div className="col-md-6 ps-md-5 ">
-          <small className=" text-gray  ">
+          <small className=" text-gray  my-4">
             For any queries feel free to message us
           </small>
-          <form className="w-100   ps-md-5" ref={form} onSubmit={sendEmail}>
+          <form className="w-100  " ref={form} onSubmit={sendEmail}>
             <input
-              className=" w-100  bg-gray-100 px-5 outline-none border-2 py-2 focus:border-primary  rounded my-1"
+              className=" w-100   px-2 py-2  my-1"
               {...register('user_name', {
                 required: 'Name is Required',
               })}
@@ -112,7 +111,7 @@ const Faq = () => {
             )}
 
             <input
-              className=" w-100 mb-0 md:mb-5 lg:mb-0 outline-none border-2 bg-gray-100 focus:border-primary px-5 rounded py-2 my-1 "
+              className=" w-100  px-2  py-2 my-1 "
               type="email"
               {...register('user_email', {
                 required: 'Email is Required',
@@ -130,7 +129,7 @@ const Faq = () => {
 
             <div className="col-span-2">
               <textarea
-                className=" w-100 bg-gray-100 py-5 px-5 outline-none border-2 focus:border-primary my-2 "
+                className=" w-100  p-5  my-2 "
                 {...register('message', {
                   required: 'Message is Required',
                   minLength: {

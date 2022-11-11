@@ -2,6 +2,13 @@
 .highlight {
   color: #fcc757;
 }
+.bgImage {
+  background-image: url('./Images/bgshape.svg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  // height: 100vh
+}
 .card:hover {
   border: 2px solid #1a2238 !important;
   background-color: white;

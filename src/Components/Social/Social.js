@@ -1,23 +1,22 @@
 import React from 'react';
-import './Social.css';
 
 const Social = () => {
   return (
-    <div className="container connected mt-5">
-      <h5>Stay Connected</h5>
-      <div className="social">
+    <div className="container connected my-5">
+      <h5 className="text-gray">Stay Connected</h5>
+      <div className="d-flex justify-content-center align-items-center">
         <div>
-          <a href="#">
+          <a href="https://www.facebook.com/" className="text-primary fs-1 p-2">
             <i className="fab fa-facebook-f"></i>
           </a>
         </div>
         <div>
-          <a href="#">
+          <a href="https://www.facebook.com/" className="text-primary fs-1 p-2">
             <i className="fab fa-twitter"></i>
           </a>
         </div>
         <div>
-          <a href="#">
+          <a href="https://www.facebook.com/" className="text-primary fs-1 p-2">
             <i className="fab fa-instagram"></i>
           </a>
         </div>
