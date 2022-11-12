@@ -20,11 +20,12 @@ import animationData from '../../lotties/login.json';
 const Login = () => {
   const {
     register,
-
+    handleSubmit,
     formState: { errors },
   } = useForm();
   const [loginData, setLoginData] = useState({});
-  const { user, loginUser, signInWithGoogle, isLoading, authError } = useAuth();
+  const { loginUser, signInWithGoogle, isLoading } = useAuth();
+  // user, authError
   const form = useRef();
   const location = useLocation();
   const history = useHistory();
@@ -39,19 +40,16 @@ const Login = () => {
     },
   };
 
-  const handleOnChange = (e) => {
-    console.log(e.target.value);
-    const field = e.target.name;
-    const value = e.target.value;
-    const newLoginData = { ...loginData };
-    newLoginData[field] = value;
+  const onSubmit = (data) => {
+    let newLoginData = { ...loginData };
+    newLoginData.email = data.user_email;
+    newLoginData.password = data.password;
     setLoginData(newLoginData);
-  };
-  const handleLoginSubmit = (e) => {
-    console.log(loginData);
+
     loginUser(loginData.email, loginData.password, location, history);
-    e.preventDefault();
+    // e.preventDefault();
   };
+  console.log(loginUser);
 
   const handleGoogleSignIn = () => {
     signInWithGoogle(location, history);
@@ -71,13 +69,12 @@ const Login = () => {
             <form
               className="w-md-75 bg-dark shadow p-3 rounded  "
               ref={form}
-              onSubmit={handleLoginSubmit}
+              onSubmit={handleSubmit(onSubmit)}
             >
               <h3>Login</h3>
               <input
                 className=" w-100  px-2  py-2 my-1  border border-secondary border-1"
                 type="email"
-                onChange={handleOnChange}
                 {...register('user_email', {
                   required: 'Email is Required',
                   pattern: {
@@ -94,7 +91,6 @@ const Login = () => {
               <input
                 className=" w-100  px-2  py-2 my-1 border border-secondary border-1 "
                 type="password"
-                onChange={handleOnChange}
                 {...register('password', {
                   required: true,
                 })}
@@ -109,17 +105,17 @@ const Login = () => {
                 type="submit"
                 value="Login"
               />
+              {isLoading && (
+                <div class="spinner-border text-secondary" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              )}
               <NavLink to="/register">
                 <p className="text-primary fw-bold text-decoration-underline">
                   New User? Please Register
                 </p>
               </NavLink>
-              {authError && (
-                <div class="text-danger d-flex align-items-center" role="alert">
-                  <p>{authError}</p>
-                </div>
-              )}
-              {/* <p>------------------------------------</p> */}
+
               <button
                 onClick={handleGoogleSignIn}
                 className="mt-1 bg-primary  px-3 py-2 rounded border border-secondary border-start-3 text-white"
@@ -128,58 +124,6 @@ const Login = () => {
                 Login with Google
               </button>
             </form>
-            {/* <form onSubmit={handleLoginSubmit}>
-            <TextField
-              sx={{ width: '75%', m: 1 }}
-              id="standard-basic"
-              label="Your Email"
-              name="email"
-              onChange={handleOnChange}
-              variant="standard"
-            />
-            <TextField
-              sx={{ width: '75%', m: 1 }}
-              id="standard-basic"
-              label="Your Password"
-              type="password"
-              name="password"
-              onChange={handleOnChange}
-              variant="standard"
-            />
-
-            <Button
-              style={{
-                background: '#000b19',
-                boxShadow: '1px 1px 5px  #b000b2,  -1px -1px 5px  #b000b2',
-              }}
-              sx={{ width: '75%', m: 1 }}
-              type="submit"
-              variant="contained"
-            >
-              Login
-            </Button>
-            <NavLink style={{ textDecoration: 'none' }} to="/register">
-              <Button style={{ color: '#000b19' }} variant="text">
-                New User? Please Register
-              </Button>
-            </NavLink>
-            {isLoading && <CircularProgress />}
-            {user?.email && (
-              <Alert severity="success">Login successfully!</Alert>
-            )}
-            {authError && <Alert severity="error">{authError}</Alert>}
-          </form> */}
-
-            {/* <Button
-            style={{
-              background: '#000b19',
-              boxShadow: '1px 1px 5px  #b000b2,  -1px -1px 5px  #b000b2',
-            }}
-            onClick={handleGoogleSignIn}
-            variant="contained"
-          >
-            Google Sign In
-          </Button> */}
           </div>
         </div>
       </div>
