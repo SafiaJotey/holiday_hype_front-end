@@ -8,19 +8,32 @@ const BlogDetails = () => {
     fetch(`https://guarded-scrubland-87252.herokuapp.com/details/${blogId}`)
       .then((res) => res.json())
       .then((data) => setBlog(data));
-  }, []);
-  console.log(blog);
+  }, [blogId]);
+
   return (
     <div className="container">
-      <h3 className="m-5">{blog.title} </h3>
+      <h3 className="m-5 text-primary fw-bold text-decoration-underline">
+        {blog.title}{' '}
+      </h3>
 
-      <img className="float-md-start m-3" src={blog.image} alt="" />
-      <div className="d-flex justift-content-between align-items-center mt-5">
-        <h4 className="me-auto">Publish date: {blog.publishDate}</h4>
-        <h4> Author Name: {blog.author}</h4>
+      <img
+        className="w-50 p-2 img-fluid  float-md-start m-3 border border-1 border-line rounded bg-dark shadow"
+        src={blog.image}
+        alt=""
+      />
+      <div className="d-flex justift-content-between align-items-center mt-4 ">
+        <h5 className="mt-4 text-secondary fw-bold">
+          Publish date: {blog.publishDate}
+        </h5>{' '}
+        &nbsp; &nbsp;
+        <h5 className="mt-4 text-primary fw-bold">
+          {' '}
+          Author Name: {blog.author}
+        </h5>
       </div>
+
       <p
-        className="text-start my-3 "
+        className="text-start   p-2 text-base"
         dangerouslySetInnerHTML={{ __html: blog.body }}
       />
     </div>

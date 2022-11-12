@@ -3,16 +3,16 @@ import { Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/Images/logo.png';
 
-import './Footer.css';
+// import './Footer.css';
 
 const Footer = () => {
   return (
     <div>
-      <div className="footer-container">
+      <div className="bg-primary mt-5 p-5 text-white text-center">
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-5">
-              <div className="left-container text-center">
+              <div className=" text-center">
                 <div>
                   <img className="w-75" src={logo} alt="" />
                 </div>
@@ -30,7 +30,7 @@ const Footer = () => {
                 </p>
 
                 <p className="mt-5">
-                  <small>DreamTravel © . All rights reserved.</small>
+                  <small>Holiday Hype © . All rights reserved.</small>
                 </p>
               </div>
               <div className="d-flex justify-content-center align-items-center">
@@ -52,25 +52,25 @@ const Footer = () => {
               </div>
             </div>
             <div className="col-md-2">
-              <div className="footer-menu-container">
-                <ul className="my-5">
-                  <li className="footer-menu">
-                    <Nav.Link as={Link} to="/home" className="menuColor">
+              <div>
+                <ul className="my-5 d-flex flex-column">
+                  <li className="list-unstyled my-2 pe-auto">
+                    <Nav.Link as={Link} to="/home">
                       {' '}
                       Home
                     </Nav.Link>
                   </li>
 
-                  <li className="footer-menu">
+                  <li className="list-unstyled my-2 pe-auto">
                     {' '}
-                    <Nav.Link as={Link} to="/addBlog" className="menuColor">
+                    <Nav.Link as={Link} to="/addBlog">
                       {' '}
                       Blogs
                     </Nav.Link>
                   </li>
-                  <li className="footer-menu">
+                  <li className="list-unstyled my-2 pe-auto">
                     {' '}
-                    <Nav.Link as={Link} to="/login " className="menuColor">
+                    <Nav.Link as={Link} to="/login ">
                       {' '}
                       Login
                     </Nav.Link>
@@ -79,10 +79,10 @@ const Footer = () => {
               </div>
             </div>
             <div className="col-md-5">
-              <div className="right-footer-container">
+              <div>
                 <h3>Sign up for the newsletter</h3>
                 <input
-                  className="footer-input my-5"
+                  className="p-2  my-3 w-75 text-start border-none"
                   type="text"
                   placeholder="Enter  your Email"
                 />
