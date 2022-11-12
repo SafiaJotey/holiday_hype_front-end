@@ -1,12 +1,3 @@
-// import {
-//   Alert,
-//   Button,
-//   CircularProgress,
-//   // Container,
-//   div,
-//   TextField,
-//   Typography,
-// } from '@mui/material';
 import React, { useRef, useState } from 'react';
 
 import { useForm } from 'react-hook-form';
@@ -49,7 +40,6 @@ const Login = () => {
     loginUser(loginData.email, loginData.password, location, history);
     // e.preventDefault();
   };
-  console.log(loginUser);
 
   const handleGoogleSignIn = () => {
     signInWithGoogle(location, history);
