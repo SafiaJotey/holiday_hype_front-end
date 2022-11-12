@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import swal from 'sweetalert';
-import useAuth from './../Hooks/useAuth';
+import useAuth from '../../utils/Hooks/useAuth';
 import './MyOrders.css';
 
 const MyOrders = () => {

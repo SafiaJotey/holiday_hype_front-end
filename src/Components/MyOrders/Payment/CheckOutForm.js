@@ -1,7 +1,7 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
 import { Spinner } from 'react-bootstrap';
-import useAuth from '../../Hooks/useAuth';
+import useAuth from '../../../utils/Hooks/useAuth';
 import './style.css';
 
 const CheckOutForm = ({ order }) => {

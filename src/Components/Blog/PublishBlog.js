@@ -2,7 +2,7 @@ import { Editor } from '@tinymce/tinymce-react';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import swal from 'sweetalert';
-import useAuth from './../Hooks/useAuth';
+import useAuth from '../../utils/Hooks/useAuth';
 import './Blog.css';
 const PublishBlog = () => {
   const [editorText, setEditorText] = useState('Start a blog');

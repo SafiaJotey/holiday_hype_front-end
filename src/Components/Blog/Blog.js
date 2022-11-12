@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Lottie from 'react-lottie';
 import { Link } from 'react-router-dom';
-import animationData from '../../lotties/blog.json';
-import useMediaQuery from '../Hooks/useMediaQuery';
+import animationData from '../../assets/lotties/blog.json';
+import useMediaQuery from '../../utils/Hooks/useMediaQuery';
 import './Blog.css';
 
 const Blog = () => {

@@ -4,9 +4,9 @@ import { useForm } from 'react-hook-form';
 import Lottie from 'react-lottie';
 
 import { NavLink, useHistory, useLocation } from 'react-router-dom';
-import useAuth from '../../Components/Hooks/useAuth';
-import useMediaQuery from '../../Components/Hooks/useMediaQuery';
-import animationData from '../../lotties/login.json';
+import animationData from '../../assets/lotties/login.json';
+import useAuth from '../../utils/Hooks/useAuth';
+import useMediaQuery from '../../utils/Hooks/useMediaQuery';
 
 const Login = () => {
   const {

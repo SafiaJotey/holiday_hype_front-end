@@ -3,7 +3,7 @@ import React, { useRef } from 'react';
 import { Accordion } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import swal from 'sweetalert';
-import faq from '../../Images/faq.png';
+import faq from '../../assets/Images/faq.png';
 
 const Faq = () => {
   const form = useRef();

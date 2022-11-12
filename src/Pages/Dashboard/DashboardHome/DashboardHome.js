@@ -1,7 +1,7 @@
 // import { Grid } from '@mui/material';
 // import React from 'react';
 // import Lottie from 'react-lottie';
-// import useMediaQuery from '../../../Components/Hooks/useMediaQuery';
+// import useMediaQuery from '../../../utils/Hooks/useMediaQuery';
 // import animationData from '../../../lotties/dashboard.json';
 
 // const DashboardHome = () => {

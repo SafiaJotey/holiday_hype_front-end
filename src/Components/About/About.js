@@ -1,9 +1,9 @@
 import React from 'react';
-import about from '../../Images/about.jpg';
-import Bandarban from '../../Images/Bandarban.jpeg';
-import jaflong from '../../Images/jaflong.jpg';
-import sajek from '../../Images/sajek.jpg';
-import Shundarban from '../../Images/shun.jpg';
+import about from '../../assets/Images/about.jpg';
+import Bandarban from '../../assets/Images/Bandarban.jpeg';
+import jaflong from '../../assets/Images/jaflong.jpg';
+import sajek from '../../assets/Images/sajek.jpg';
+import Shundarban from '../../assets/Images/shun.jpg';
 
 const About = () => {
   return (

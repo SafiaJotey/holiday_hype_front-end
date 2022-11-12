@@ -3,8 +3,8 @@ import { loadStripe } from '@stripe/stripe-js';
 import React, { useEffect, useState } from 'react';
 import Lottie from 'react-lottie';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
-import animationData from '../../../lotties/payment.json';
-import useMediaQuery from '../../Hooks/useMediaQuery';
+import animationData from '../../../assets/lotties/payment.json';
+import useMediaQuery from '../../../utils/Hooks/useMediaQuery';
 import CheckOutForm from './CheckOutForm';
 const stripePromise = loadStripe(
   'pk_test_51Jy0LwBgFp1VWIUWHbxJnNCwiyBmGGn06StHxseA6ZvMlfKJBZrkSXT1TvXeUgBiTThCByH2mc2QPbQ8q2YTJPGr00CNflA4te'

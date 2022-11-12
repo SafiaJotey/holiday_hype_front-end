@@ -7,7 +7,6 @@ import Blog from './Components/Blog/Blog';
 import PublishBlog from './Components/Blog/PublishBlog';
 import BlogDetails from './Components/BlogDetails/BlogDetails';
 import Booking from './Components/Booking/Booking';
-import AuthProvider from './Components/Context/AuthProvider';
 import Header from './Components/Header/Header';
 import ManageOrder from './Components/ManageOrders/ManageOrder';
 import MyBlogs from './Components/MyBlogs/MyBlogs';
@@ -19,6 +18,7 @@ import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import Register from './Pages/Register/Register';
+import AuthProvider from './utils/Context/AuthProvider';
 
 function App() {
   return (
