@@ -4,10 +4,9 @@ import { useForm } from 'react-hook-form';
 import { useParams } from 'react-router';
 import swal from 'sweetalert';
 import useAuth from '../../utils/Hooks/useAuth';
-import './Booking.css';
 
 const Booking = () => {
-  const [modalShow, setModalShow] = useState(false);
+  // const [modalShow, setModalShow] = useState(false);
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -22,13 +21,13 @@ const Booking = () => {
     )
       .then((res) => res.json())
       .then((data) => setService(data));
-  }, []);
+  }, [serviceId]);
 
   console.log(service);
   const {
     register,
     handleSubmit,
-    watch,
+
     formState: { errors },
     trigger,
   } = useForm();
@@ -56,63 +55,87 @@ const Booking = () => {
           });
       }
     });
-
-    console.log(data);
   };
 
   return (
-    <div className="booking">
-      <h3>Confirm Your Order</h3>
-      <div className="booking-container container ">
-        <h4 className="mb-5">
-          Visit Beautiful <span className="highlight"> {service?.title}</span>{' '}
+    <div className="py-4">
+      <h3 className="fw-bold">Confirm Your bookings</h3>
+      <div className=" container ">
+        <h4 className="mb-2 fw-bold">
+          Visit Beautiful{' '}
+          <span className="text-secondary"> {service?.title}</span>{' '}
         </h4>
-        <div className="row  d-flex justify-content-center align-items-center ">
+        <div className="row  d-flex justify-content-center align-items-start my-4   ">
           <div className="col-md-6 ">
-            <img src={service?.image} alt="" />
+            <img
+              className="w-100 p-2 img-fluid  float-md-start m-3 border border-1 border-line rounded bg-dark shadow"
+              src={service?.image}
+              alt=""
+            />
           </div>
-          <div className="col-md-6 ">
-            <h3 className="text-start">{service?.subTitle}</h3>
-            <p className="text-start">{service?.description}</p>
+          <div className="col-md-6 mt-4">
+            <h5 className="text-start fw-bold  px-2">{service?.subTitle}</h5>
+            <p className="text-start  px-2">{service?.description}</p>
           </div>
         </div>
 
-        <div className="d-flex justify-content-center align-items-center ">
-          <div className="w-100 d-flex flex-column justify-content-start align-items-start mt-5">
+        <div className="d-flex justify-content-center align-items-center p-4 ">
+          <div className="w-100 d-flex flex-column justify-content-start align-items-start ">
             <div>
-              <h3>Book Your Order</h3>
+              <h4 className="fw-bold text-decoration-underline">
+                Booking details
+              </h4>
             </div>
             <div className="text-start  ">
-              <p> Place: {service?.title} </p>
-              <p> Location: {service?.location} </p>
-              <h5> price:$ {service?.price} </h5>
-              <Button className="my-2 " variant="primary" onClick={handleShow}>
+              <p>
+                {' '}
+                <span className="fw-bold">Place:</span> {service?.title}{' '}
+              </p>
+              <p>
+                <span className="fw-bold"> Location:</span> {service?.location}{' '}
+              </p>
+              <p>
+                <span className="fw-bold">Duration: </span>4 days 3 nights
+              </p>
+              <p>
+                <span className="fw-bold">Date:</span> 22 Nov,2022-25 Nov,2022
+              </p>
+              <h5>Cost:$ {service?.price} </h5>
+
+              <Button
+                className=" my-2 bg-primary  px-3 py-2 rounded border border-secondary border-start-3 "
+                variant="primary"
+                onClick={handleShow}
+              >
                 Book Now
               </Button>
 
               <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
-                  <Modal.Title>Modal heading</Modal.Title>
+                  <Modal.Title className="text-primary fw-bold">
+                    Your{' '}
+                    <span className="text-secondary fw-bold">information</span>
+                  </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                   <form onSubmit={handleSubmit(onSubmit)}>
                     <input
                       {...register('Username')}
                       defaultValue={user?.displayName}
-                      className="p-2 m-2 w-100"
+                      className="p-2 m-1 w-100 border border-line rounded"
                     />
                     <br />
                     <input
                       {...register('Email')}
                       defaultValue={user?.email}
-                      className="p-2 m-2 w-100"
+                      className="p-2  m-1  w-100 border border-line rounded"
                     />
                     <br />
                     {service?.title && (
                       <input
                         {...register('name')}
                         defaultValue={service?.title}
-                        className="p-2 m-2 w-100"
+                        className="p-2  m-1 w-100 border border-line rounded"
                         readOnly
                       />
                     )}
@@ -120,7 +143,7 @@ const Booking = () => {
                       <input
                         {...register('location')}
                         defaultValue={service?.location}
-                        className="p-2 m-2 w-100"
+                        className="p-2  m-1 w-100 border border-line rounded"
                         readOnly
                       />
                     )}
@@ -131,7 +154,7 @@ const Booking = () => {
                       <input
                         {...register('price')}
                         defaultValue={service?.price}
-                        className="p-2 m-2 w-100"
+                        className="p-2  m-1 w-100 border border-line rounded"
                       />
                     )}
 
@@ -146,11 +169,11 @@ const Booking = () => {
                     <input
                       {...register('Address', { required: true })}
                       placeholder="Enter your proper Address to confirm the order"
-                      className="p-2 m-2 w-100"
+                      className="p-2  m-1  w-100 border border-line rounded"
                     />
                     {errors.Address && (
-                      <span className="text-danger">
-                        This field is required
+                      <span className="text-danger fw-bold mx-2 ">
+                        <small>This field is required</small>
                       </span>
                     )}
                     <br />
@@ -158,24 +181,23 @@ const Booking = () => {
                       {...register('Mobile', {
                         required: true,
                         pattern: {
-                          value: /^[0-9]*$/,
-                          message: 'Only numbers are allowed',
+                          value: /^(?:\+88|01)?\d{11}\r?$/,
+                          message: 'Please enter a valid contact number',
                         },
                       })}
                       onKeyUp={() => {
                         trigger('Mobile');
                       }}
                       placeholder="Enter your Contact Number"
-                      className="p-2 m-2 w-100"
+                      className="p-2  m-1  w-100 border border-line rounded"
                     />
                     {errors.Mobile && (
-                      <small className="text-danger">
-                        {errors.Mobile.message}
-                      </small>
-                    )}
-                    {errors.Address && (
-                      <span className="text-danger">
-                        This field is required
+                      <span className="text-danger fw-bold mx-2 ">
+                        {errors.Mobile.message === '' ? (
+                          <small>this field is required </small>
+                        ) : (
+                          <small>{errors.Mobile.message}</small>
+                        )}
                       </span>
                     )}
 
@@ -184,7 +206,7 @@ const Booking = () => {
                     <input
                       type="submit"
                       value="Place Booking"
-                      className="btn "
+                      className="mt-3 bg-primary text-white  px-3 py-2 rounded border border-secondary border-start-3"
                     />
                   </form>
                 </Modal.Body>

@@ -1,4 +1,10 @@
 // Override default variables before the import
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+.App {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
 .highlight {
   color: #fcc757;
 }

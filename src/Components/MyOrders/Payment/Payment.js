@@ -33,18 +33,29 @@ const Payment = () => {
 
   return (
     <div class="container">
-      <div className=" d-flex flex-column justify-content-center align-items-center mt-5">
-        <h3>Confirm Your Order</h3>
-        <p className="mb-5">
+      <div className=" d-flex flex-column justify-content-center align-items-center m-3">
+        <h3 className="text-primary fw-bold">
+          Confirm <span className="text-secondary ">Your Order</span>
+        </h3>
+        <p className="mb-3">
           Pay for your order online. Enter your valid card information and pay
           online easily.
         </p>
       </div>
       <div class="row d-flex justify-content-center align-items-center">
-        <div class="col-md-7">
-          <h5 className="">Pay for: {order?.name} package</h5>
+        <div class="col-md-7 text-start">
+          <h5 className="">
+            <spin className="text-primary fw-bold">Pay for:</spin> {order?.name}{' '}
+            package
+          </h5>
           <p>Location: {order?.location} </p>
-          <p className="text-warning fw-bold">Cost: $ {order?.price} </p>
+          <p>
+            <span className="fw-bold">Duration: </span>4 days 3 nights
+          </p>
+          <p>
+            <span className="fw-bold">Date:</span> 22 Nov,2022-25 Nov,2022
+          </p>
+          <h5 className="text-warning fw-bold">Cost: $ {order?.price} </h5>
           {order?.price && (
             <Elements stripe={stripePromise}>
               <CheckOutForm order={order} />
@@ -57,7 +68,7 @@ const Payment = () => {
             <Lottie
               options={defaultOptions}
               isClickToPauseDisabled={true}
-              width={isDesktop ? 420 : isTablet ? 400 : 300}
+              width={isDesktop ? 400 : isTablet ? 300 : 250}
             />
           </div>
         </div>

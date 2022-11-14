@@ -64,7 +64,7 @@ const Blog = () => {
         <div className="row d-flex justify-content-center align-items-center my-3 ">
           {blogs.map((blog) => (
             <div
-              class="p-2  rounded border border-1 border-line m-1"
+              className="p-2  rounded border border-1 border-line m-1"
               style={{ width: '18rem' }}
             >
               <img src={blog.image} class="card-img-top mt-2" alt="..." />

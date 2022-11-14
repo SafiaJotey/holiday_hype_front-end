@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import './App.css';
+
 import AddServices from './Components/AddServices/AddServices';
 import AllServices from './Components/AllServices/AllServices';
 import Blog from './Components/Blog/Blog';
@@ -9,6 +9,7 @@ import BlogDetails from './Components/BlogDetails/BlogDetails';
 import Booking from './Components/Booking/Booking';
 import Header from './Components/Header/Header';
 import ManageOrder from './Components/ManageOrders/ManageOrder';
+
 import MyBlogs from './Components/MyBlogs/MyBlogs';
 import MyOrders from './Components/MyOrders/MyOrders';
 import Payment from './Components/MyOrders/Payment/Payment';

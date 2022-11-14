@@ -2,13 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import swal from 'sweetalert';
 import useAuth from '../../utils/Hooks/useAuth';
-import './MyOrders.css';
 
 const MyOrders = () => {
   const { user } = useAuth();
-  const [modalShow, setModalShow] = useState(false);
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
+
+  // const [show, setShow] = useState(false);
+  // const handleClose = () => setShow(false);
 
   const [services, setServices] = useState([]);
 
@@ -18,7 +17,7 @@ const MyOrders = () => {
     fetch(`https://guarded-scrubland-87252.herokuapp.com/myOrder/${user.email}`)
       .then((res) => res.json())
       .then((data) => setServices(data));
-  }, [control]);
+  }, [control, user.email]);
 
   const handleDelete = (id) => {
     swal({
@@ -39,7 +38,7 @@ const MyOrders = () => {
         )
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+            setControl(true);
           });
       }
     });
@@ -47,62 +46,70 @@ const MyOrders = () => {
 
   return (
     <div className="container">
-      <h1 className="order mt-5">
-        Orders of <span className="highlight">{user.displayName}</span>{' '}
+      <h1 className="pt-3">
+        Orders of <span className="text-secondary">{user.displayName}</span>{' '}
       </h1>
-      <p className="mb-5">Confirm your order by online payment</p>
+      <p className="">Confirm your order by online payment</p>
       {services.length === 0 ? (
         <div className="d-flex justify-content-center">
           <h5>You haven't placed any order yet!</h5>
         </div>
       ) : (
-        <div class="row g-0 d-flex justify-content-between align-items-center">
+        <div class="row  d-flex justify-content-between align-items-center">
           {services.map((service) => (
             <div
-              className="col-md-6 card 
-       services mb-3  "
+              className="col-md-6  bg-dark p-2 border border-1 border-line rounded shadow mb-3  "
               style={{ maxWidth: '550px' }}
             >
               <div className="row   m-1">
                 <div class="col-md-5 ">
                   <img
-                    className="w-100 h-75 mt-2"
+                    className="w-100 h-75 mt-2  p-1 img-fluid  float-md-start m-3 border border-1 border-line rounded bg-dark shadow"
                     src={service?.image}
                     alt=""
                   />
                 </div>
-                <div class="col-md-7">
-                  <div class="card-body text-start">
-                    <h6>Place:{service?.name}</h6>
-                    <p>Location:{service?.location}</p>
+                <div class="col-md-7  p-3">
+                  <div class="card-body text-start text-primary">
+                    <h5 className="fw-bold">Place: &nbsp;{service?.name}</h5>
+                    <p>
+                      <span className="fw-bold">Location:</span>&nbsp;
+                      {service?.location}
+                    </p>
 
-                    <h6 className="text-danger">
-                      {' '}
-                      Total Cost :$ {service?.price}
+                    <h6 className="text-secondary">
+                      Total Cost : &nbsp; $ {service?.price}
                     </h6>
-                    <p>UserName:{service?.Username}</p>
-                    <p>Address:{service?.Address}</p>
+                    <p>
+                      {' '}
+                      <span className="fw-bold"> UserName:</span>&nbsp;
+                      {service?.Username}
+                    </p>
+                    <p>
+                      <span className="fw-bold">Address:</span>&nbsp;
+                      {service?.Address}
+                    </p>
                     {/* <p className="text-success">Status:{service?.status}</p> */}
                     <div className="d-flex justify-content-start align-items-center">
                       {service.payment ? (
-                        <p className="text-success m-2">paid.</p>
+                        <p className="text-secondary fw-bold m-2">paid.</p>
                       ) : (
                         <Link to={`/payment/${service._id}`} className="pay">
                           <div>
-                            <button className="rounded fs-6 px-3 py-1 m-1  btn-success d-flex justify-content-start align-items-center">
+                            <button className="mt-3 bg-primary text-white  px-3 py-2 rounded border border-secondary border-start-3">
                               pay
                             </button>
                           </div>
                         </Link>
                       )}
                       {service.payment ? (
-                        <p className="text-success my-2">
+                        <p className="text-secondary fw-bold my-2">
                           Have a great holiday!
                         </p>
                       ) : (
                         <button
                           onClick={() => handleDelete(service?._id)}
-                          className=" buttonCancel   fs-6 px-3 py-1 btn-danger rounded m-1"
+                          className="mx-1 mt-3 bg-secondary text-white  px-3 py-2 rounded border border-secondary border-start-3"
                         >
                           Cancel
                         </button>

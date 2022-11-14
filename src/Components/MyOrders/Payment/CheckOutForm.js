@@ -119,7 +119,11 @@ const CheckOutForm = ({ order }) => {
         {processing ? (
           <Spinner animation="border" variant="danger" />
         ) : (
-          <button className="buttonPayment" type="submit" disabled={!stripe}>
+          <button
+            className="mt-3 bg-primary text-white  px-3 py-2 rounded border border-secondary border-start-3"
+            type="submit"
+            disabled={!stripe}
+          >
             Pay ${order?.price}
           </button>
         )}

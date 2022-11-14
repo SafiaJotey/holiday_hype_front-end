@@ -37,7 +37,7 @@ const Header = () => {
                     className="text-white pe-auto"
                     to="/myOrder"
                   >
-                    MyOrders
+                    MyBookings
                   </Nav.Link>
                   <Nav.Link
                     as={Link}

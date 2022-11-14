@@ -9,7 +9,7 @@ const MyBlogs = () => {
     fetch(`https://guarded-scrubland-87252.herokuapp.com/myBlog/${user.email}`)
       .then((res) => res.json())
       .then((data) => setBlogs(data));
-  }, []);
+  }, [user.email]);
   return (
     <div className="container">
       <h1 className="order my-5">
@@ -22,24 +22,35 @@ const MyBlogs = () => {
       ) : (
         <div className="row ">
           {blogs.map((blog) => (
-            <div class="card" style={{ width: '18rem' }}>
+            <div
+              className="p-2  rounded border border-1 border-line m-1"
+              style={{ width: '18rem' }}
+            >
               <img src={blog.image} class="card-img-top mt-2" alt="..." />
               <div class="card-body blogText">
-                <h4 class="card-text">{blog.title}</h4>
+                <h4 class="card-text fs-5 fw-bold text-primary">
+                  {blog.title}
+                </h4>
                 <small className="smallText text-Success">
                   Status: {blog.status}
                 </small>
                 <hr />
 
                 <div className=" row d-flex justift-content-between align-items-center">
-                  <div className="col-7 d-flex justift-content-between align-items-center">
-                    <small className="smallText">{blog.publishDate}</small>
-                    <small className="smallText"> by {blog.author}</small>
+                  <div className="col-8 d-flex justift-content-between align-items-center">
+                    <small className="smallText ">{blog.publishDate}</small>{' '}
+                    &nbsp;
+                    <small className="smallText "> by {blog.author}</small>
                   </div>
-                  <div className="col-5">
-                    <Link className="blogLink" to={`/details/${blog._id}`}>
-                      Read more..
-                    </Link>
+                  <div className="col-4">
+                    <small>
+                      <Link
+                        className="blogLink pe-auto fs-7 fw-bold text-secondary "
+                        to={`/details/${blog._id}`}
+                      >
+                        Read more
+                      </Link>
+                    </small>
                   </div>
                 </div>
               </div>
