@@ -1,3 +1,4 @@
+import '@coreui/coreui/dist/css/coreui.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -13,7 +14,8 @@ import ManageOrder from './Components/ManageOrders/ManageOrder';
 import MyBlogs from './Components/MyBlogs/MyBlogs';
 import MyOrders from './Components/MyOrders/MyOrders';
 import Payment from './Components/MyOrders/Payment/Payment';
-import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
+import Dashboard from './Pages/Dashboard/Dashboard';
+
 import Error from './Pages/Error/Error';
 import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
@@ -72,9 +74,9 @@ function App() {
             <Route path="/register">
               <Register></Register>
             </Route>
-            <PrivateRoute path="/dashboard">
+            <Route path="/dashboard">
               <Dashboard></Dashboard>
-            </PrivateRoute>
+            </Route>
             <Route path="/addServices">
               <AddServices></AddServices>
             </Route>

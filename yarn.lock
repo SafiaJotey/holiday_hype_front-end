@@ -1105,6 +1105,28 @@
     exec-sh "^0.3.2"
     minimist "^1.2.0"
 
+"@coreui/coreui@^4.2.2":
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/@coreui/coreui/-/coreui-4.2.2.tgz#9702c1bec21ffd03415598aedf1ee58b752b3e1e"
+  integrity sha512-aPL7Rv98CBkIU4y7wmZOUBHuBN2qwRS3CFeWmUV3kPeGiPQe9FG4+kOtcITbttNQ35HVMSZeauJyoy2LSM0ygA==
+  dependencies:
+    postcss-combine-duplicated-selectors "^10.0.3"
+
+"@coreui/icons-react@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@coreui/icons-react/-/icons-react-2.1.0.tgz#4ea785ce1d127ff738c5b761ee2953e33f6b26b4"
+  integrity sha512-x7qhVB6IJFbGBh/An3QZHtuUISM+TBgc4x3ecrBel+wMdJm4Qpmg9Km0GFfOkP6/fNOfy2fLb2wZ2bbe5+sgQA==
+
+"@coreui/icons@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@coreui/icons/-/icons-2.1.0.tgz#b21641d3d034fdef308c87dc347c8684c408a753"
+  integrity sha512-3yY9J0088TSY403jwJeP5YERH3RLOvxdhOa4VIQsGOX4fuQZiyVUM+vwlzyCSpgAv9NwKPkCor+gc+JJaYf0TA==
+
+"@coreui/react@^4.4.0":
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/@coreui/react/-/react-4.4.0.tgz#a1b5e35b93c73db4326bb41151b779287fc64185"
+  integrity sha512-72ZKArQQCMknqaE5AHDdOGy/kTl7xDK/I8reuWX6uTHLRD3Rz85pIA5IUzHafLIOlte8Sci0fdWYG8UshpXQyQ==
+
 "@csstools/convert-colors@^1.4.0":
   version "1.4.0"
   resolved "https://registry.npmjs.org/@csstools/convert-colors/-/convert-colors-1.4.0.tgz"
@@ -9119,6 +9141,13 @@ postcss-colormin@^4.0.3:
     postcss "^7.0.0"
     postcss-value-parser "^3.0.0"
 
+postcss-combine-duplicated-selectors@^10.0.3:
+  version "10.0.3"
+  resolved "https://registry.yarnpkg.com/postcss-combine-duplicated-selectors/-/postcss-combine-duplicated-selectors-10.0.3.tgz#71e8b6783e99cd560cf08ba7b896ad0db318c11c"
+  integrity sha512-IP0BmwFloCskv7DV7xqvzDXqMHpwdczJa6ZvIW8abgHdcIHs9mCJX2ltFhu3EwA51ozp13DByng30+Ke+eIExA==
+  dependencies:
+    postcss-selector-parser "^6.0.4"
+
 postcss-convert-values@^4.0.1:
   version "4.0.1"
   resolved "https://registry.npmjs.org/postcss-convert-values/-/postcss-convert-values-4.0.1.tgz"
@@ -9637,7 +9666,7 @@ postcss-selector-parser@^5.0.0-rc.3, postcss-selector-parser@^5.0.0-rc.4:
     indexes-of "^1.0.1"
     uniq "^1.0.1"
 
-postcss-selector-parser@^6.0.0, postcss-selector-parser@^6.0.2:
+postcss-selector-parser@^6.0.0, postcss-selector-parser@^6.0.2, postcss-selector-parser@^6.0.4:
   version "6.0.10"
   resolved "https://registry.npmjs.org/postcss-selector-parser/-/postcss-selector-parser-6.0.10.tgz"
   integrity sha512-IQ7TZdoaqbT+LCpShg46jnZVlhWD2w6iQYAcYXfHARZ7X1t/UGhhceQDs5X0cGqKvYlHNOuv7Oa1xmb0oQuA3w==
