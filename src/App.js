@@ -16,12 +16,12 @@ import MyOrders from './Components/MyOrders/MyOrders';
 import Payment from './Components/MyOrders/Payment/Payment';
 import Dashboard from './Pages/Dashboard/Dashboard';
 
+import AuthProvider from './Context/AuthProvider';
 import Error from './Pages/Error/Error';
 import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import Register from './Pages/Register/Register';
-import AuthProvider from './utils/Context/AuthProvider';
 
 function App() {
   return (

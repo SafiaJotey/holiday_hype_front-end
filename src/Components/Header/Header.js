@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/Images/logo.png';
-import useAuth from '../../utils/Hooks/useAuth';
+import useAuth from '../../Hooks/useAuth';
 
 const Header = () => {
   const { user, logout } = useAuth();

@@ -1,13 +1,13 @@
 import { default as React, useRef, useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
-import useAuth from './../../utils/Hooks/useAuth';
+import useAuth from '../../Hooks/useAuth';
 
 import { useForm } from 'react-hook-form';
 import Lottie from 'react-lottie';
 
 import { useLocation } from 'react-router-dom';
 import animationData from '../../assets/lotties/login.json';
-import useMediaQuery from '../../utils/Hooks/useMediaQuery';
+import useMediaQuery from '../../Hooks/useMediaQuery';
 
 const Register = () => {
   const {

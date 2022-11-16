@@ -5,8 +5,8 @@ import Lottie from 'react-lottie';
 
 import { NavLink, useHistory, useLocation } from 'react-router-dom';
 import animationData from '../../assets/lotties/login.json';
-import useAuth from '../../utils/Hooks/useAuth';
-import useMediaQuery from '../../utils/Hooks/useMediaQuery';
+import useAuth from '../../Hooks/useAuth';
+import useMediaQuery from '../../Hooks/useMediaQuery';
 
 const Login = () => {
   const {

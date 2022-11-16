@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Lottie from 'react-lottie';
 import { Link } from 'react-router-dom';
 import animationData from '../../assets/lotties/blog.json';
-import useMediaQuery from '../../utils/Hooks/useMediaQuery';
+import useMediaQuery from '../../Hooks/useMediaQuery';
 
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);

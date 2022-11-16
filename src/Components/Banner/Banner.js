@@ -1,7 +1,7 @@
 import React from 'react';
 import Lottie from 'react-lottie';
 import animationData from '../../assets/lotties/banner.json';
-import useMediaQuery from '../../utils/Hooks/useMediaQuery';
+import useMediaQuery from '../../Hooks/useMediaQuery';
 
 const Banner = () => {
   const isTablet = useMediaQuery('(min-width: 656px)');
