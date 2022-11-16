@@ -1,8 +1,7 @@
-import { cilPuzzle, cilShieldAlt, cilSpeedometer } from '@coreui/icons';
+import { cil3d, cilShieldAlt } from '@coreui/icons';
 import CIcon from '@coreui/icons-react';
 
 import {
-  CNavGroup,
   CNavItem,
   CSidebar,
   CSidebarBrand,
@@ -21,24 +20,21 @@ const Sidebar = () => {
       </CSidebarBrand>
       <CSidebarNav>
         <CNavItem href="#">
-          <CIcon customClassName="nav-icon" icon={cilSpeedometer} />
-          Nav item
+          <CIcon customClassName="nav-icon" icon={cil3d} />
+          See All packages
         </CNavItem>
         <CNavItem href="#">
-          <CIcon customClassName="nav-icon" icon={cilSpeedometer} />
-          With badge
+          <CIcon customClassName="nav-icon" icon={cil3d} /> Add a new package
+        </CNavItem>
+        <CNavItem href="#">
+          <CIcon customClassName="nav-icon" icon={cil3d} />
+          Manage Orders
+        </CNavItem>
+        <CNavItem href="#">
+          <CIcon customClassName="nav-icon" icon={cil3d} />
+          Create Admin
           {/* <CBadge color="primary ms-auto">NEW</CBadge> */}
         </CNavItem>
-        <CNavGroup toggler="Nav dropdown">
-          <CNavItem href="#">
-            <CIcon customClassName="nav-icon" icon={cilPuzzle} /> Nav dropdown
-            item
-          </CNavItem>
-          <CNavItem href="#">
-            <CIcon customClassName="nav-icon" icon={cilPuzzle} /> Nav dropdown
-            item
-          </CNavItem>
-        </CNavGroup>
       </CSidebarNav>
       <CSidebarToggler />
     </CSidebar>
