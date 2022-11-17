@@ -6,7 +6,7 @@ import './Error.css';
 const Error = () => {
   return (
     <div className="notFound">
-      <img src={notFound}></img>
+      <img src={notFound} alt="404"></img>
       <Link to="/">Go back</Link>
     </div>
   );
