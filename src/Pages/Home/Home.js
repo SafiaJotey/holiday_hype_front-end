@@ -6,6 +6,7 @@ import Card from '../../Components/Card/Card';
 import Faq from '../../Components/Faq/Faq';
 import Footer from '../../Components/Footer/Footer';
 import Social from '../../Components/Social/Social';
+import VisitBlog from '../../Components/VisitBlog/VisitBlog';
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <Card></Card>
       <About></About>
       <AllServices></AllServices>
+      <VisitBlog></VisitBlog>
       <Faq></Faq>
       <Social></Social>
       <Footer></Footer>{' '}

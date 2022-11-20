@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
 import PackageSlider from '../../utils/PackageSlider/PackageSlider';
-// import './AllServices.css';
 
 const AllServices = () => {
   const [services, setServices] = useState([]);

@@ -14,9 +14,19 @@ const PackageSlider = (props) => {
     slidesToScroll: 1,
     autoplay: true,
 
-    speed: 30,
+    speed: 300,
     autoplaySpeed: 2000,
     cssEase: 'linear',
+    responsive: [
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
+        },
+      },
+    ],
   };
 
   return (
@@ -37,7 +47,7 @@ const PackageSlider = (props) => {
                 Cost : $ {service?.price}
               </h5>
               <Link to={`/booking/${service._id}`}>
-                <button className="mt-3 bg-primary text-white px-3 py-2 rounded border border-secondary border-start-3">
+                <button className=" bg-primary text-white px-3 py-2 rounded border border-secondary border-start-3">
                   Details
                 </button>
               </Link>

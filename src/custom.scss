@@ -8,6 +8,22 @@
 .highlight {
   color: #fcc757;
 }
+.overlay {
+  background-color: rgba(26, 34, 56, 0.3);
+  width: 100%;
+  padding: 50px 0;
+}
+.background {
+  background-image: url('../src/assets/Images/background.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  // height: 100vh
+}
+.bg-attachment {
+  background-attachment: fixed;
+}
 .bgImage {
   background-image: url('../src/assets/Images/bgshape.svg');
   background-position: center center;

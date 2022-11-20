@@ -32,9 +32,17 @@ const Banner = () => {
               the article to find out a few most important things to know before
               going on a one-year trip around the world.
             </p>
-            <button className="mt-3 bg-primary  px-3 py-2 rounded border border-secondary border-start-3">
+            <button className="mt-3 mx-1 bg-primary pe-auto px-4 py-2 rounded border border-secondary border-start-3">
               <a href="home#about" className=" text-decoration-none text-white">
-                Know more
+                Know More
+              </a>
+            </button>
+            <button className="mt-3  mx-1 bg-secondary px-5 py-2 rounded border pe-auto border-secondary border-start-3">
+              <a
+                href="home#packages"
+                className=" text-decoration-none text-white"
+              >
+                Buy Now
               </a>
             </button>
           </div>
