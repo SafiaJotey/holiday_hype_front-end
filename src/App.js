@@ -18,6 +18,7 @@ import MyOrders from './Components/MyOrders/MyOrders';
 import Payment from './Components/MyOrders/Payment/Payment';
 import Dashboard from './Pages/Dashboard/Dashboard';
 
+import ViewAll from './Components/AllServices/ViewAll';
 import AuthProvider from './Context/AuthProvider';
 import Error from './Pages/Error/Error';
 import Home from './Pages/Home/Home';
@@ -56,7 +57,7 @@ function App() {
               <Booking></Booking>
             </PrivateRoute>
 
-            <PrivateRoute path="/myBlog/:email">
+            <PrivateRoute path="/myBlog">
               <MyBlogs></MyBlogs>
             </PrivateRoute>
 
@@ -78,6 +79,9 @@ function App() {
             </Route>
             <Route path="/dashboard">
               <Dashboard></Dashboard>
+            </Route>
+            <Route path="/view">
+              <ViewAll />
             </Route>
             <Route path="/addServices">
               <AddServices></AddServices>

@@ -1,11 +1,14 @@
 import { Editor } from '@tinymce/tinymce-react';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useHistory } from 'react-router-dom';
+
 import swal from 'sweetalert';
 import useAuth from '../../Hooks/useAuth';
 
 const PublishBlog = () => {
   const [editorText, setEditorText] = useState('Start a blog');
+  const history = useHistory();
   const { user } = useAuth();
   const {
     register,
@@ -30,15 +33,19 @@ const PublishBlog = () => {
         swal('The blog is Submitted ', {
           icon: 'success',
         });
-        fetch('https://guarded-scrubland-87252.herokuapp.com/addBlog', {
-          method: 'POST',
-          headers: { 'content-type': 'application/json' },
-          body: JSON.stringify(data),
-        })
+        fetch(
+          ' https://holiday-hype-back-end.onrender.com/api/v1/blog/addBlog',
+          {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(data),
+          }
+        )
           .then((res) => res.json())
           .then((result) => console.log(result));
         console.log(data);
       }
+      history.replace('/myBlog');
     });
   };
 

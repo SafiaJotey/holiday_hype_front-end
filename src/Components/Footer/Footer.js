@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <div>
       <div className="bg-primary mt-5 p-5 text-white text-center">
-        <div className="container-fluid">
+        <div className="container">
           <div className="row">
             <div className="col-md-5">
               <div className=" text-center">
@@ -30,7 +30,7 @@ const Footer = () => {
                 </p>
 
                 <p className="mt-5">
-                  <small>Holiday Hype © . All rights reserved.</small>
+                  <small>Holiday Hype©By Safia Ahmed.</small>
                 </p>
               </div>
               <div className="d-flex justify-content-center align-items-center">

@@ -21,7 +21,7 @@ const VisitBlog = () => {
               destinstion.
             </p>
             <Link to="/addBlog">
-              <button className=" bg-secondary text-white fs-6 px-5 py-2 pe-auto rounded border border-secondary border-start-3">
+              <button className=" bg-secondary pe-auto text-white fs-6 px-5 py-2 pe-auto rounded border border-secondary border-start-3">
                 Let's Start
               </button>
             </Link>

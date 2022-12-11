@@ -6,7 +6,7 @@ import Slider from 'react-slick';
 
 const PackageSlider = (props) => {
   const { services } = props;
-  console.log(services);
+
   const settings = {
     dots: true,
     infinite: true,
@@ -32,28 +32,29 @@ const PackageSlider = (props) => {
   return (
     <div>
       <Slider {...settings}>
-        {services?.map((service) => (
-          <div className="col-md-4 p-2">
-            <div className="bg-dark border border-line my-2 p-2 shadow">
-              <div>
-                <img className="w-100" src={service?.image} alt="" />
+        {Array.isArray(services) &&
+          services?.map((service) => (
+            <div className="col-md-4 p-2">
+              <div className="bg-dark border border-line my-2 p-2 shadow">
+                <div>
+                  <img className="w-100" src={service?.image} alt="" />
+                </div>
+
+                <h6 className="text-primary fw-bold my-2">{service?.title}</h6>
+
+                <p>{service?.subTitle}</p>
+                <h5 className="text-secondary fw-bold ">
+                  {' '}
+                  Cost : $ {service?.price}
+                </h5>
+                <Link to={`/booking/${service._id}`}>
+                  <button className=" bg-primary text-white px-3 py-2 rounded border border-secondary border-start-3">
+                    Details
+                  </button>
+                </Link>
               </div>
-
-              <h6 className="text-primary fw-bold my-2">{service?.title}</h6>
-
-              <p>{service?.subTitle}</p>
-              <h5 className="text-secondary fw-bold ">
-                {' '}
-                Cost : $ {service?.price}
-              </h5>
-              <Link to={`/booking/${service._id}`}>
-                <button className=" bg-primary text-white px-3 py-2 rounded border border-secondary border-start-3">
-                  Details
-                </button>
-              </Link>
             </div>
-          </div>
-        ))}
+          ))}
       </Slider>
     </div>
   );

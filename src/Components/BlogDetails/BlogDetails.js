@@ -5,9 +5,9 @@ const BlogDetails = () => {
   const [blog, setBlog] = useState([]);
   const { blogId } = useParams();
   useEffect(() => {
-    fetch(`https://guarded-scrubland-87252.herokuapp.com/details/${blogId}`)
+    fetch(`https://holiday-hype-back-end.onrender.com/api/v1/blog/${blogId}`)
       .then((res) => res.json())
-      .then((data) => setBlog(data));
+      .then((data) => setBlog(data.data[0]));
   }, [blogId]);
 
   return (

@@ -6,10 +6,7 @@ const Card = () => {
     <div className="container my-2">
       <div className="d-flex flex-column flex-md-row justify-content-center align-items-center">
         <div className="p-2 m-4 ">
-          <a
-            href="home#packages"
-            className="about text-decoration-none text-primary  "
-          >
+          <Link to="/view" className="about text-decoration-none text-primary ">
             <div className="row  card shadow-sm bg-dark">
               <div className="col-12 my-5  d-flex flex-column justify-content-center align-items-center  my-md-0 py-4 ">
                 <i class="fas fa-box fs-1 fw-bold"></i>
@@ -27,7 +24,7 @@ const Card = () => {
                 </div>
               </div>
             </div>
-          </a>
+          </Link>
         </div>
 
         <div className="p-2 m-4 ">

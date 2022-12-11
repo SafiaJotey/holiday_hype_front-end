@@ -6,10 +6,12 @@ const MyBlogs = () => {
   const [blogs, setBlogs] = useState([]);
   const { user } = useAuth();
   useEffect(() => {
-    fetch(`https://guarded-scrubland-87252.herokuapp.com/myBlog/${user.email}`)
+    fetch(
+      `https://holiday-hype-back-end.onrender.com/api/v1/blog/myBlog/${user.email}`
+    )
       .then((res) => res.json())
-      .then((data) => setBlogs(data));
-  }, [user.email]);
+      .then((data) => setBlogs(data.data));
+  }, [user.email, blogs]);
   return (
     <div className="container">
       <h1 className="order my-5">

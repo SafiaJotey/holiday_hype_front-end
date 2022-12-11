@@ -2,6 +2,7 @@ import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
 // import useAuth from '../../utils/Hooks/useAuth';
 import DatePicker from 'react-datepicker';
+// import swal from 'sweetalert';
 
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -16,15 +17,26 @@ const AddServices = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    // console.log(data)
-    // fetch('https://guarded-scrubland-87252.herokuapp.com/addServices', {
-    //   method: 'POST',
-    //   headers: { 'content-type': 'application/json' },
-    //   body: JSON.stringify(data),
-    // })
-    //   .then((res) => res.json())
-    //   .then((result) => console.log(result));
     console.log(data);
+    // swal({
+    //   title: ' Do you want to order this watch?',
+    //   icon: 'warning',
+
+    //   buttons: true,
+    // }).then((willConfirm) => {
+    //   if (willConfirm) {
+    //     swal('Done.This item is added to your order list.', {
+    //       icon: 'success',
+    //     });
+    //     fetch('https://holiday-hype-back-end.onrender.com/api/v1/packages/addPackage', {
+    //       method: 'POST',
+    //       headers: { 'content-type': 'application/json' },
+    //       body: JSON.stringify(data),
+    //     })
+    //       .then((res) => res.json())
+    //       .then((result) => console.log(result));
+    //   }
+    // });
   };
   return (
     <div className="bgImage p-2">
@@ -77,6 +89,7 @@ const AddServices = () => {
               <div className="  d-flex flex-row justify-content-between ">
                 <div className="pe-2 w-50">
                   <Controller
+                    {...register('date', { required: true })}
                     control={control}
                     name="date-input"
                     render={({ field }) => (
@@ -106,7 +119,7 @@ const AddServices = () => {
               </div>
               <input
                 type="submit"
-                value="ADD"
+                value="Add Package"
                 className="mt-1 bg-primary  px-3 py-2 rounded border border-secondary border-start-3 text-white"
               />
             </form>

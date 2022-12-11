@@ -7,18 +7,30 @@ import Faq from '../../Components/Faq/Faq';
 import Footer from '../../Components/Footer/Footer';
 import Social from '../../Components/Social/Social';
 import VisitBlog from '../../Components/VisitBlog/VisitBlog';
+import WhyToChoose from '../../Components/WhyToChoose/WhyToChoose';
+import useAuth from '../../Hooks/useAuth';
+import Spinner from '../../utils/Spinner/Spinner';
 
 const Home = () => {
+  const { isLoading } = useAuth();
   return (
     <div>
-      <Banner></Banner>
-      <Card></Card>
-      <About></About>
-      <AllServices></AllServices>
-      <VisitBlog></VisitBlog>
-      <Faq></Faq>
-      <Social></Social>
-      <Footer></Footer>{' '}
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <div>
+          {' '}
+          <Banner></Banner>
+          <Card></Card>
+          <About></About>
+          <AllServices></AllServices>
+          <VisitBlog></VisitBlog>
+          <WhyToChoose></WhyToChoose>
+          <Faq></Faq>
+          <Social></Social>
+          <Footer></Footer>{' '}
+        </div>
+      )}
     </div>
   );
 };

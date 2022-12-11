@@ -94,13 +94,13 @@ const useFirebase = () => {
     return () => unsubscribed;
   }, [auth]);
 
-  useEffect(() => {
-    fetch(
-      ` https://sheltered-anchorage-82357.herokuapp.com/users/${user.email}`
-    )
-      .then((res) => res.json())
-      .then((data) => setAdmin(data.admin));
-  }, [user?.email]);
+  // useEffect(() => {
+  //   fetch(
+  //     ` https://sheltered-anchorage-82357.herokuapp.com/users/${user.email}`
+  //   )
+  //     .then((res) => res.json())
+  //     .then((data) => setAdmin(data.admin));
+  // }, [user?.email]);
 
   const logout = () => {
     setIsLoading(true);

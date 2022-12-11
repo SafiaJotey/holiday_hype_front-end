@@ -15,7 +15,7 @@ const CheckOutForm = ({ order }) => {
   const [clientSecret, setClientSecret] = useState([]);
   useEffect(() => {
     fetch(
-      'https://guarded-scrubland-87252.herokuapp.com/create-payment-intent',
+      'https://holiday-hype-back-end.onrender.com/api/v1/payment/create-payment-intent',
       {
         method: 'POST',
         headers: {
@@ -83,7 +83,8 @@ const CheckOutForm = ({ order }) => {
         last4: paymentMethod.card.last4,
         clientSecret: paymentIntent.client_secret.slice('_secret')[0],
       };
-      const url = `https://guarded-scrubland-87252.herokuapp.com/myOrder/${_id}`;
+      console.log(payment);
+      const url = `http://localhost:5000/api/v1/bookings/${_id}`;
       fetch(url, {
         method: 'PUT',
         headers: {
@@ -117,7 +118,7 @@ const CheckOutForm = ({ order }) => {
           }}
         />
         {processing ? (
-          <Spinner animation="border" variant="danger" />
+          <Spinner animation="border" variant="warning" />
         ) : (
           <button
             className="mt-3 bg-primary text-white  px-3 py-2 rounded border border-secondary border-start-3"

@@ -17,11 +17,11 @@ const Blog = () => {
     },
   };
   useEffect(() => {
-    fetch('https://guarded-scrubland-87252.herokuapp.com/blogs')
+    fetch('https://holiday-hype-back-end.onrender.com/api/v1/blog/')
       .then((res) => res.json())
-      .then((data) => setBlogs(data));
+      .then((data) => setBlogs(data.data));
   }, []);
-  console.log(blogs);
+
   return (
     <div className=" ">
       <div className="d-flex  align-items-center justify-content-center container ">

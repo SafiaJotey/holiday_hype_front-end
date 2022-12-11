@@ -14,10 +14,12 @@ const MyOrders = () => {
   const [control, setControl] = useState(false);
 
   useEffect(() => {
-    fetch(`https://guarded-scrubland-87252.herokuapp.com/myOrder/${user.email}`)
+    fetch(
+      `https://holiday-hype-back-end.onrender.com/api/v1/bookings/${user.email}`
+    )
       .then((res) => res.json())
-      .then((data) => setServices(data));
-  }, [control, user.email]);
+      .then((data) => setServices(data.data));
+  }, [control, user.email, services]);
 
   const handleDelete = (id) => {
     swal({
@@ -31,7 +33,7 @@ const MyOrders = () => {
           icon: 'success',
         });
         fetch(
-          `https://guarded-scrubland-87252.herokuapp.com/deleteOrder/${id}`,
+          `https://holiday-hype-back-end.onrender.com/api/v1/bookings/${id}`,
           {
             method: 'DELETE',
           }
@@ -50,7 +52,7 @@ const MyOrders = () => {
         Orders of <span className="text-secondary">{user.displayName}</span>{' '}
       </h1>
       <p className="">Confirm your order by online payment</p>
-      {services.length === 0 ? (
+      {services !== {} && services.length === 0 ? (
         <div className="d-flex justify-content-center">
           <h5>You haven't placed any order yet!</h5>
         </div>
@@ -92,7 +94,7 @@ const MyOrders = () => {
                     {/* <p className="text-success">Status:{service?.status}</p> */}
                     <div className="d-flex justify-content-start align-items-center">
                       {service.payment ? (
-                        <p className="text-secondary fw-bold m-2">paid.</p>
+                        <p className="text-primary fw-bold m-2">paid.</p>
                       ) : (
                         <Link to={`/payment/${service._id}`} className="pay">
                           <div>
@@ -103,7 +105,7 @@ const MyOrders = () => {
                         </Link>
                       )}
                       {service.payment ? (
-                        <p className="text-secondary fw-bold my-2">
+                        <p className="text-primary fw-bold my-2">
                           Have a great holiday!
                         </p>
                       ) : (
