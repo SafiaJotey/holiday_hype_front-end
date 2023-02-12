@@ -7,18 +7,20 @@ import 'slick-carousel/slick/slick.css';
 import AddServices from './Components/AddServices/AddServices';
 import AllServices from './Components/AllServices/AllServices';
 import Blog from './Components/Blog/Blog';
-import PublishBlog from './Components/Blog/PublishBlog';
-import BlogDetails from './Components/BlogDetails/BlogDetails';
+
 import Booking from './Components/Booking/Booking';
 import Header from './Components/Header/Header';
 import ManageOrder from './Components/ManageOrders/ManageOrder';
 
-import MyBlogs from './Components/MyBlogs/MyBlogs';
 import MyOrders from './Components/MyOrders/MyOrders';
 import Payment from './Components/MyOrders/Payment/Payment';
 import Dashboard from './Pages/Dashboard/Dashboard';
 
 import ViewAll from './Components/AllServices/ViewAll';
+import AllBlogs from './Components/Blog/AllBlogs/AllBlogs';
+import BlogDetails from './Components/Blog/BlogDetails/BlogDetails';
+import MyBlogs from './Components/Blog/MyBlogs/MyBlogs';
+import PublishBlog from './Components/Blog/PublishBlog/PublishBlog';
 import AuthProvider from './Context/AuthProvider';
 import Error from './Pages/Error/Error';
 import Home from './Pages/Home/Home';
@@ -59,6 +61,9 @@ function App() {
 
             <PrivateRoute path="/myBlog">
               <MyBlogs></MyBlogs>
+            </PrivateRoute>
+            <PrivateRoute path="/allBlogs">
+              <AllBlogs></AllBlogs>
             </PrivateRoute>
 
             <PrivateRoute exact path="/myOrder">

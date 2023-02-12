@@ -1,8 +1,11 @@
+import { CTooltip } from '@coreui/react';
 import React, { useEffect, useState } from 'react';
 import Lottie from 'react-lottie';
 import { Link } from 'react-router-dom';
 import animationData from '../../assets/lotties/blog.json';
 import useMediaQuery from '../../Hooks/useMediaQuery';
+
+import { AiFillEye } from 'react-icons/ai';
 
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);
@@ -60,30 +63,40 @@ const Blog = () => {
             See what others share. Know about the attractive tourist spots of
             Bangladesh.
           </p>
+          <CTooltip content="View All Blogs" placement="right">
+            <Link
+              to="/allBlogs"
+              className=" w-auto text-secondary fw-bold  pe-auto d-flex justify-content-center container align-items-center "
+            >
+              <small className="fw-bold  text-secondary">
+                <AiFillEye className="fs-5" />
+              </small>
+              <small className="fw-bold fs-6  text-secondary">View All</small>
+            </Link>
+          </CTooltip>{' '}
         </div>
         <div className="row d-flex justify-content-center align-items-center my-3 ">
-          {blogs.map((blog) => (
+          {blogs?.slice(0, 3).map((blog) => (
             <div
-              className="p-2  rounded border border-1 border-line m-1"
+              className="p-2  rounded border border-1 border-line m-1 "
               style={{ width: '18rem' }}
             >
               <img src={blog.image} class="card-img-top mt-2" alt="..." />
               <div class="card-body ">
-                <h4 class="card-text fs-5 fw-bold text-primary">
+                <h4 class="card-text fs-6 fw-bold text-primary">
                   {blog.title}
                 </h4>
 
                 <hr />
-                <div className=" row d-flex justift-content-between align-items-center">
-                  <div className="col-8 d-flex justift-content-between align-items-center">
-                    <small className="smallText ">{blog.publishDate}</small>{' '}
-                    &nbsp;
-                    <small className="smallText "> by {blog.author}</small>
+                <div className=" row d-flex justift-content-between align-items-center ">
+                  <div className="col-8 d-flex justift-content-between align-items-center ">
+                    <small className="fs-7 ">{blog.publishDate}</small> &nbsp;
+                    <small className="fs-7 "> by {blog.author}</small>
                   </div>
                   <div className="col-4">
-                    <small>
+                    <small className="pe-auto">
                       <Link
-                        className="blogLink pe-auto fs-7 fw-bold text-secondary "
+                        className="blogLink pe-auto fs-7 fw-bold text-secondary  "
                         to={`/details/${blog._id}`}
                       >
                         Read more

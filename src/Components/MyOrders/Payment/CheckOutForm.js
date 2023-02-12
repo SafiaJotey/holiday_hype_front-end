@@ -84,7 +84,7 @@ const CheckOutForm = ({ order }) => {
         clientSecret: paymentIntent.client_secret.slice('_secret')[0],
       };
       console.log(payment);
-      const url = `http://localhost:5000/api/v1/bookings/${_id}`;
+      const url = `https://holiday-hype-back-end.onrender.com/api/v1/bookings/${_id}`;
       fetch(url, {
         method: 'PUT',
         headers: {

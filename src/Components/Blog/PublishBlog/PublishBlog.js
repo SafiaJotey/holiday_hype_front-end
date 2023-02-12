@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 
 import swal from 'sweetalert';
-import useAuth from '../../Hooks/useAuth';
+import useAuth from '../../../Hooks/useAuth';
 
 const PublishBlog = () => {
   const [editorText, setEditorText] = useState('Start a blog');

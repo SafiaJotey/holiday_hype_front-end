@@ -7,7 +7,6 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
-  updateProfile,
 } from 'firebase/auth';
 import { useEffect, useState } from 'react';
 import initializeAuthentication from '../../src/Pages/Login/Firebase/firebase.init';
@@ -34,11 +33,7 @@ const useFirebase = () => {
         // save user to the database
         saveUser(email, name, 'POST');
         // send name to firebase after creation
-        updateProfile(auth.currentUser, {
-          displayName: name,
-        })
-          .then(() => {})
-          .catch((error) => {});
+        updateProfile(name);
         history.replace('/');
       })
       .catch((error) => {
@@ -101,6 +96,13 @@ const useFirebase = () => {
   //     .then((res) => res.json())
   //     .then((data) => setAdmin(data.admin));
   // }, [user?.email]);
+  const updateProfile = (name) => {
+    updateProfile(auth.currentUser, {
+      displayName: name,
+    })
+      .then(() => {})
+      .catch((error) => {});
+  };
 
   const logout = () => {
     setIsLoading(true);
