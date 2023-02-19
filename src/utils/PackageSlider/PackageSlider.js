@@ -40,15 +40,17 @@ const PackageSlider = (props) => {
                   <img className="w-100" src={service?.image} alt="" />
                 </div>
 
-                <h6 className="text-primary fw-bold my-2">{service?.title}</h6>
+                <h5 className="text-primary fw-bold fs-6 mt-1">
+                  {service?.title}
+                </h5>
 
-                <p>{service?.subTitle}</p>
-                <h5 className="text-secondary fw-bold ">
+                <small>{service?.subTitle}</small>
+                <h5 className="text-secondary fs-6 fw-bold ">
                   {' '}
                   Cost : $ {service?.price}
                 </h5>
                 <Link to={`/booking/${service._id}`}>
-                  <button className=" bg-primary text-white px-3 py-2 rounded border border-secondary border-start-3">
+                  <button className=" bg-primary text-white px-5 py-2 rounded border border-secondary border-start-3">
                     Details
                   </button>
                 </Link>

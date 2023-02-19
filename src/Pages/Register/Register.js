@@ -1,13 +1,17 @@
-import { default as React, useRef, useState } from 'react';
-import { NavLink, useHistory } from 'react-router-dom';
-import useAuth from '../../Hooks/useAuth';
-
+import { default as React, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import Lottie from 'react-lottie';
+import { NavLink, useHistory } from 'react-router-dom';
+
+import useAuth from '../../Hooks/useAuth';
 
 import { useLocation } from 'react-router-dom';
 import animationData from '../../assets/lotties/login.json';
 import useMediaQuery from '../../Hooks/useMediaQuery';
+import {
+  failNotification,
+  successNotification,
+} from '../../utils/Notification';
 
 const Register = () => {
   const {
@@ -15,8 +19,16 @@ const Register = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const [loginData, setLoginData] = useState({});
-  const { isLoading, registerUser, signInWithGoogle } = useAuth();
+
+  const {
+    isLoading,
+    registerUser,
+    signInWithGoogle,
+    createUser,
+    setIsLoading,
+    updateUserProfile,
+    setAuthError,
+  } = useAuth();
   // user, authError
   const form = useRef();
   const location = useLocation();
@@ -33,19 +45,42 @@ const Register = () => {
   };
 
   const onSubmit = (data) => {
-    let newLoginData = { ...loginData };
+    let newLoginData = {};
+
     newLoginData.name = data.name;
 
     newLoginData.email = data.user_email;
     newLoginData.password = data.password;
     newLoginData.password2 = data.password2;
-    setLoginData(newLoginData);
-    if (loginData.password !== loginData.password2) {
-      alert('Your password did not match');
+
+    if (newLoginData.password !== newLoginData.password2) {
+      failNotification('Confirm password is not same as password');
+
       return;
     }
-    console.log(loginData);
-    registerUser(loginData.email, loginData.password, loginData.name, history);
+
+    registerUser(newLoginData.email, newLoginData.password)
+      .then((userCredential) => {
+        console.log(userCredential.user.photoURL);
+        setAuthError('');
+        const newUser = {
+          email: newLoginData.email,
+          displayName: newLoginData.name,
+          photoUrl: userCredential.user.photoURL,
+        };
+
+        createUser(newUser);
+
+        updateUserProfile(newLoginData.name);
+        successNotification('Successfully Registered!!');
+        history.replace('/');
+      })
+
+      .catch((error) => {
+        setAuthError(error.message);
+        failNotification('Something went wrong');
+      })
+      .finally(() => setIsLoading(false));
   };
 
   const handleGoogleSignIn = () => {

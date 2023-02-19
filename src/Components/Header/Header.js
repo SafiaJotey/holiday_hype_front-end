@@ -49,7 +49,7 @@ const Header = () => {
                         Blogs
                       </p>
                       <ul
-                        class="dropdown-menu  "
+                        class="dropdown-menu bg-primary text-center "
                         aria-labelledby="navbarDropdown"
                       >
                         <li className="text-white">
@@ -58,7 +58,10 @@ const Header = () => {
                             className="text-black pe-auto text-white"
                             to="/addBlog"
                           >
-                            Publish Blog
+                            <span className="text-white p-1">
+                              {' '}
+                              Publish Blog
+                            </span>
                           </Nav.Link>
                         </li>
                         <li>
@@ -67,7 +70,7 @@ const Header = () => {
                             className="text-black pe-auto"
                             to="/myBlog/:email"
                           >
-                            My Blogs
+                            <span className="text-white p-1"> My Blogs</span>
                           </Nav.Link>
                         </li>
                         <li>
@@ -76,7 +79,7 @@ const Header = () => {
                             className="text-black pe-auto"
                             to="/allBlogs"
                           >
-                            All Blogs
+                            <span className="text-white p-1"> All Blogs</span>
                           </Nav.Link>
                         </li>
                       </ul>
@@ -96,26 +99,28 @@ const Header = () => {
                         <FaUserCircle className="fs-3 text-white " />
                       </p>
                       <ul
-                        class="dropdown-menu  "
+                        class="dropdown-menu bg-primary text-center"
                         aria-labelledby="navbarDropdown "
                       >
-                        <li className="px-2">
-                          <Navbar className="text-primary">
-                            Hi! &nbsp;
-                            <small className="fs-6 text-secondary fw-bold">
-                              {user.displayName
-                                ? `${user?.displayName}`
-                                : `${user?.email}`}
-                            </small>
+                        <li className="px-2 ">
+                          <Navbar className="text-primary   ">
+                            <span className="text-white p-1">
+                              Hi! &nbsp;
+                              <small className="fs-6 text-secondary fw-bold">
+                                {user.displayName
+                                  ? `${user?.displayName}`
+                                  : `${user?.email}`}
+                              </small>
+                            </span>
                           </Navbar>
                         </li>
                         <li className="text-white">
                           <Nav.Link
                             as={Link}
                             className="text-black pe-auto text-white"
-                            to="/profile"
+                            to={`/profile/${user?.email}`}
                           >
-                            Profile
+                            <span className="text-white p-1">Profile</span>
                           </Nav.Link>
                         </li>
                         <li className="text-white">
@@ -126,7 +131,7 @@ const Header = () => {
                           >
                             <Button
                               onClick={logout}
-                              className="bg-primary text-white pe-auto px-5 "
+                              className="bg-secondary text-white pe-auto px-5 "
                             >
                               Logout
                             </Button>{' '}

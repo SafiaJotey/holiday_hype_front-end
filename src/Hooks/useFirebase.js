@@ -7,6 +7,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from 'firebase/auth';
 import { useEffect, useState } from 'react';
 import initializeAuthentication from '../../src/Pages/Login/Firebase/firebase.init';
@@ -23,38 +24,14 @@ const useFirebase = () => {
   const auth = getAuth();
   const googleProvider = new GoogleAuthProvider();
 
-  const registerUser = (email, password, name, history) => {
+  const registerUser = (email, password) => {
     setIsLoading(true);
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        setAuthError('');
-        const newUser = { email, displayName: name };
-        setUser(newUser);
-        // save user to the database
-        saveUser(email, name, 'POST');
-        // send name to firebase after creation
-        updateProfile(name);
-        history.replace('/');
-      })
-      .catch((error) => {
-        setAuthError(error.message);
-        console.log(error);
-      })
-      .finally(() => setIsLoading(false));
+    return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  const loginUser = (email, password, location, history) => {
+  const loginUser = (email, password) => {
     setIsLoading(true);
-    signInWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        const destination = location?.state?.from || '/';
-        history.replace(destination);
-        setAuthError('');
-      })
-      .catch((error) => {
-        setAuthError(error.message);
-      })
-      .finally(() => setIsLoading(false));
+    return signInWithEmailAndPassword(auth, email, password);
   };
 
   const signInWithGoogle = (location, history) => {
@@ -96,12 +73,19 @@ const useFirebase = () => {
   //     .then((res) => res.json())
   //     .then((data) => setAdmin(data.admin));
   // }, [user?.email]);
-  const updateProfile = (name) => {
-    updateProfile(auth.currentUser, {
+  const updateUserProfile = (name) => {
+    setIsLoading(true);
+    return updateProfile(auth.currentUser, {
       displayName: name,
     })
-      .then(() => {})
-      .catch((error) => {});
+      .then(() => {
+        // Profile updated!
+        // ...
+      })
+      .catch((error) => {
+        // An error occurred
+        // ...
+      });
   };
 
   const logout = () => {
@@ -115,7 +99,22 @@ const useFirebase = () => {
       })
       .finally(() => setIsLoading(false));
   };
-
+  const createUser = ({ email, displayName, photoUrl }) => {
+    const user = {
+      email,
+      displayName,
+      photoUrl,
+    };
+    fetch(' http://localhost:5000/api/v1/user/create', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(user),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+      });
+  };
   const saveUser = (email, displayName, method) => {
     const user = { email, displayName };
     fetch(' https://sheltered-anchorage-82357.herokuapp.com/users', {
@@ -137,6 +136,10 @@ const useFirebase = () => {
     loginUser,
     signInWithGoogle,
     logout,
+    createUser,
+    setAuthError,
+    updateUserProfile,
+    setIsLoading,
   };
 };
 

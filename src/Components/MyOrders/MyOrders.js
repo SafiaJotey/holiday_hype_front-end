@@ -60,7 +60,7 @@ const MyOrders = () => {
         <div class="row  d-flex justify-content-between align-items-center">
           {services.map((service) => (
             <div
-              className="col-md-6  bg-dark p-2 border border-1 border-line rounded shadow mb-3  "
+              className="col-md-6  bg-dark p-2 border border-1 border-line rounded shadow mb-3 h-400 "
               style={{ maxWidth: '550px' }}
             >
               <div className="row   m-1">
@@ -74,23 +74,24 @@ const MyOrders = () => {
                 <div class="col-md-7  p-3">
                   <div class="card-body text-start text-primary">
                     <h5 className="fw-bold">Place: &nbsp;{service?.name}</h5>
-                    <p>
+                    <small>
                       <span className="fw-bold">Location:</span>&nbsp;
                       {service?.location}
-                    </p>
+                    </small>
 
                     <h6 className="text-secondary">
                       Total Cost : &nbsp; $ {service?.price}
                     </h6>
-                    <p>
+                    <small>
                       {' '}
                       <span className="fw-bold"> UserName:</span>&nbsp;
                       {service?.Username}
-                    </p>
-                    <p>
+                    </small>
+                    <br />
+                    <small>
                       <span className="fw-bold">Address:</span>&nbsp;
                       {service?.Address}
-                    </p>
+                    </small>
                     {/* <p className="text-success">Status:{service?.status}</p> */}
                     <div className="d-flex justify-content-start align-items-center">
                       {service.payment ? (

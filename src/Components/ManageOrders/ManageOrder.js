@@ -26,8 +26,6 @@ const ManageOrder = () => {
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify({ status }),
     });
-
-    console.log(id);
   };
 
   //delete

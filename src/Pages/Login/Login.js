@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 
 import { useForm } from 'react-hook-form';
 import Lottie from 'react-lottie';
@@ -7,21 +7,27 @@ import { NavLink, useHistory, useLocation } from 'react-router-dom';
 import animationData from '../../assets/lotties/login.json';
 import useAuth from '../../Hooks/useAuth';
 import useMediaQuery from '../../Hooks/useMediaQuery';
+import {
+  failNotification,
+  successNotification,
+} from '../../utils/Notification';
 
 const Login = () => {
+  const location = useLocation();
+  const history = useHistory();
+  const isTablet = useMediaQuery('(min-width: 656px)');
+  const isDesktop = useMediaQuery('(min-width: 900px)');
+  const destination = location?.state?.from || '/';
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const [loginData, setLoginData] = useState({});
-  const { loginUser, signInWithGoogle, isLoading } = useAuth();
+
+  const { loginUser, signInWithGoogle, isLoading, setIsLoading } = useAuth();
   // user, authError
   const form = useRef();
-  const location = useLocation();
-  const history = useHistory();
-  const isTablet = useMediaQuery('(min-width: 656px)');
-  const isDesktop = useMediaQuery('(min-width: 900px)');
+
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -32,12 +38,15 @@ const Login = () => {
   };
 
   const onSubmit = (data) => {
-    let newLoginData = { ...loginData };
-    newLoginData.email = data.user_email;
-    newLoginData.password = data.password;
-    setLoginData(newLoginData);
-
-    loginUser(loginData.email, loginData.password, location, history);
+    loginUser(data.user_email, data.password)
+      .then((userCredential) => {
+        successNotification('Successfully logged in!!');
+        history.replace(destination);
+      })
+      .catch((error) => {
+        failNotification('Password or email is not Correct');
+      })
+      .finally(() => setIsLoading(false));
     // e.preventDefault();
   };
 

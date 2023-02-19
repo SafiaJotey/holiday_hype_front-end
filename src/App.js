@@ -26,6 +26,7 @@ import Error from './Pages/Error/Error';
 import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
+import Profile from './Pages/Profile/Profile';
 import Register from './Pages/Register/Register';
 
 function App() {
@@ -57,6 +58,9 @@ function App() {
 
             <PrivateRoute path="/booking/:serviceId">
               <Booking></Booking>
+            </PrivateRoute>
+            <PrivateRoute path="/profile/:email">
+              <Profile />
             </PrivateRoute>
 
             <PrivateRoute path="/myBlog">
