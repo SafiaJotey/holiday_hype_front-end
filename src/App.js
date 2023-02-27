@@ -9,19 +9,20 @@ import AllServices from './Components/AllServices/AllServices';
 import Blog from './Components/Blog/Blog';
 
 import Booking from './Components/Booking/Booking';
-import Header from './Components/Header/Header';
+
 import ManageOrder from './Components/ManageOrders/ManageOrder';
 
 import MyOrders from './Components/MyOrders/MyOrders';
 import Payment from './Components/MyOrders/Payment/Payment';
-import Dashboard from './Pages/Dashboard/Dashboard';
 
 import ViewAll from './Components/AllServices/ViewAll';
 import AllBlogs from './Components/Blog/AllBlogs/AllBlogs';
 import BlogDetails from './Components/Blog/BlogDetails/BlogDetails';
 import MyBlogs from './Components/Blog/MyBlogs/MyBlogs';
 import PublishBlog from './Components/Blog/PublishBlog/PublishBlog';
+import Header from './Components/Header/Header';
 import AuthProvider from './Context/AuthProvider';
+import Dashboard from './Pages/Dashboard/Dashboard';
 import Error from './Pages/Error/Error';
 import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';

@@ -55,7 +55,7 @@ const Reason = () => {
           </div>
         </div>
         <div className="col-md-6">
-          <div className="d-flex text-start justify-content-center align-items-center my-2 ">
+          <div className="d-flex flex-column flex-md-row text-center text-md-start justify-content-center align-items-center my-2 ">
             <div className="rounded-circle bg-primary p-3 ">
               <AiFillHeart className=" fw-bold fs-3 text-white" />
             </div>

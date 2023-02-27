@@ -26,7 +26,7 @@ const Blog = () => {
   }, []);
 
   return (
-    <div className=" ">
+    <div className="container ">
       <div className="d-flex  align-items-center justify-content-center container ">
         <div className=" bg-dark my-5 shadow">
           <div className="row d-flex  align-items-center justify-content-center">
@@ -54,7 +54,7 @@ const Blog = () => {
         </div>
       </div>
 
-      <div className="allBlogs d-flex flex-column justify-content-center align-items-center mt-5 ">
+      <div className=" d-flex flex-column justify-content-center align-items-center mt-5 ">
         <div className="w-50 ">
           <h2 className="text-primary fw-bold">
             See All <span className="text-secondary fw-bold">Blogs</span>
@@ -66,7 +66,7 @@ const Blog = () => {
           <CTooltip content="View All Blogs" placement="right">
             <Link
               to="/allBlogs"
-              className=" w-auto text-secondary fw-bold  pe-auto d-flex justify-content-center container align-items-center "
+              className=" w-auto text-secondary fw-bold  pe-auto d-flex justify-content-center container align-items-center  "
             >
               <small className="fw-bold  text-secondary">
                 <AiFillEye className="fs-5" />
