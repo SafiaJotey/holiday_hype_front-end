@@ -14,8 +14,8 @@ const AllServices = () => {
   }, []);
 
   return (
-    <div className="my-5 p-3 country" id="packages">
-      <div className="container">
+    <div className="my-5 p-3 country  " id="packages">
+      <div className="container ">
         <h2 className="text-primary">
           Visit Beautiful <span className="text-secondary">Bangladesh</span>
         </h2>

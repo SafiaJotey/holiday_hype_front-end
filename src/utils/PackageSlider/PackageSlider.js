@@ -34,7 +34,7 @@ const PackageSlider = (props) => {
       <Slider {...settings}>
         {Array.isArray(services) &&
           services?.map((service) => (
-            <div className="col-md-4 p-2">
+            <div className="col-md-4 h-500 p-2">
               <div className="bg-dark border border-line my-2 p-2 shadow">
                 <div>
                   <img className="w-100" src={service?.image} alt="" />
