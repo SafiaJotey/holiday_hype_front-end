@@ -1,21 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useParams } from 'react-router-dom';
 import userImg from '../../assets/Images/user.png';
+import useAuth from '../../Hooks/useAuth';
 import { successNotification } from '../../utils/Notification';
 const Profile = () => {
-  const email = useParams();
+  // const email = useParams();
 
-  const [currentUser, setCurrentUser] = useState({});
+  // const [user, setuser] = useState({});
+  const { user, isLoading } = useAuth();
   const [edit, setEdit] = useState(false);
-  useEffect(() => {
-    fetch(
-      `https://holiday-hype-back-end.onrender.com/api/v1/user/current/${email.email}`
-    )
-      .then((res) => res.json())
-      .then((data) => setCurrentUser(data.data[0]));
-  }, [currentUser]);
-
+  console.log(user);
+  // useEffect(() => {
+  //   fetch(
+  //     `https://holiday-hype-back-end.onrender.com/api/v1/user/current/${email.email}`
+  //   )
+  //     .then((res) => res.json())
+  //     .then((data) => console.log(data));
+  // }, [user]);
+  // console.log(user);
   const {
     register,
     handleSubmit,
@@ -26,7 +28,7 @@ const Profile = () => {
   const onSubmit = (data) => {
     console.log(data);
     const newUser = {
-      id: currentUser._id,
+      id: user._id,
       address: data.Address,
       phoneNumber: data.Mobile,
     };
@@ -51,7 +53,7 @@ const Profile = () => {
             <div className=" row ">
               <div className="col-md-4 rounded-circle  ">
                 <img
-                  src={currentUser?.photoURL ? currentUser.photoURL : userImg}
+                  src={user?.photoURL ? user.photoURL : userImg}
                   className="w-100 h-100 rounded-circle "
                   alt=""
                 />
@@ -61,18 +63,18 @@ const Profile = () => {
                 {!edit ? (
                   <div className="d-flex flex-column justify-content-start">
                     <p className="fs-6 text-primary">
-                      User's Name: {currentUser?.displayName}
+                      User's Name: {user?.displayName}
                     </p>
 
-                    <p>Email: {currentUser?.email}</p>
+                    <p>Email: {user?.email}</p>
                     <p>
                       Phone Number:
                       <span
-                        className={`${currentUser?.phoneNumber}?"text-black":text-gray`}
+                        className={`${user?.phoneNumber}?"text-black":text-gray`}
                       >
                         {' '}
-                        {currentUser?.phoneNumber
-                          ? currentUser?.phoneNumber
+                        {user?.phoneNumber
+                          ? user?.phoneNumber
                           : 'Not given yet'}
                       </span>
                     </p>
@@ -80,12 +82,10 @@ const Profile = () => {
                     <p>
                       Address:{' '}
                       <span
-                        className={`${currentUser?.address}?"text-black":text-gray`}
+                        className={`${user?.address}?"text-black":text-gray`}
                       >
                         {' '}
-                        {currentUser?.address
-                          ? currentUser?.address
-                          : 'Not given yet'}
+                        {user?.address ? user?.address : 'Not given yet'}
                       </span>
                     </p>
                     <button
@@ -99,13 +99,13 @@ const Profile = () => {
                   <form onSubmit={handleSubmit(onSubmit)}>
                     <input
                       {...register('Username')}
-                      defaultValue={currentUser?.displayName}
+                      defaultValue={user?.displayName}
                       className="  w-100 p-1 border border-line "
                     />
                     <br />
                     <input
                       {...register('Email')}
-                      defaultValue={currentUser?.email}
+                      defaultValue={user?.email}
                       className=" mt-1 p-1 w-100 border border-line "
                     />
                     <br />
