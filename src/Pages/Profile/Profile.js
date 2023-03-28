@@ -1,23 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useParams } from 'react-router-dom';
 import userImg from '../../assets/Images/user.png';
-import useAuth from '../../Hooks/useAuth';
 import { successNotification } from '../../utils/Notification';
 const Profile = () => {
-  // const email = useParams();
+  const email = useParams();
 
-  // const [user, setuser] = useState({});
-  const { user, isLoading } = useAuth();
+  const [user, setUser] = useState({});
+  // const { user } = useAuth();
   const [edit, setEdit] = useState(false);
-  console.log(user);
-  // useEffect(() => {
-  //   fetch(
-  //     `https://holiday-hype-back-end.onrender.com/api/v1/user/current/${email.email}`
-  //   )
-  //     .then((res) => res.json())
-  //     .then((data) => console.log(data));
-  // }, [user]);
-  // console.log(user);
+
+  useEffect(() => {
+    fetch(
+      `https://holiday-hype-back-end.onrender.com/api/v1/user/current/${email.email}`
+    )
+      .then((res) => res.json())
+      .then((data) => setUser(data.data[0]));
+  }, [user]);
+
   const {
     register,
     handleSubmit,
@@ -38,9 +38,11 @@ const Profile = () => {
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(newUser),
     });
+
     successNotification('Profile Updated');
     setEdit(false);
   };
+
   return (
     <div className="bgImage">
       <div className="container  ">
@@ -49,11 +51,11 @@ const Profile = () => {
         </h1>
         <p className="fs-6">Welcome to Holiday Hype.</p>
         <div className=" d-flex flex-column flex-md-row justify-content-center text-start my-5">
-          <div className="  shadow p-5">
+          <div className="w-75  shadow p-5">
             <div className=" row ">
               <div className="col-md-4 rounded-circle  ">
                 <img
-                  src={user?.photoURL ? user.photoURL : userImg}
+                  src={user?.photoUrl ? user.photoUrl : userImg}
                   className="w-100 h-100 rounded-circle "
                   alt=""
                 />

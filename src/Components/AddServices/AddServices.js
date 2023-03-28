@@ -17,11 +17,10 @@ const AddServices = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    // console.log(data);
     // swal({
     //   title: ' Do you want to order this watch?',
     //   icon: 'warning',
-
     //   buttons: true,
     // }).then((willConfirm) => {
     //   if (willConfirm) {

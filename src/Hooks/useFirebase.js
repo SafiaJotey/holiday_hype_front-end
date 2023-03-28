@@ -41,6 +41,12 @@ const useFirebase = () => {
         const user = result.user;
         saveUser(user.email, user.displayName, 'PUT');
         setAuthError('');
+        let newUser = {
+          email: user.email,
+          displayName: user.displayName,
+          photoUrl: user.photoURL,
+        };
+        createUser(newUser);
         const destination = location?.state?.from || '/';
         history.replace(destination);
       })
